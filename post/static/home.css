@@ -1,0 +1,155 @@
+:root {
+
+    /* Colors: */
+    --unnamed-color-006600: #006600;
+    --unnamed-color-e5efe5: #E5EFE5;
+    --unnamed-color-ffc14d: #FFC14D;
+    --unnamed-color-1979c3: #1979C3;
+    --unnamed-color-ed8380: #ED8380;
+    --unnamed-color-e02b27: #E02B27;
+    --unnamed-color-909090: #909090;
+    --unnamed-color-000000: #000000;
+    --unnamed-color-ffffff: #FFFFFF;
+    --unnamed-color-ffe9df: #FFE9DF;
+    --unnamed-color-fff4ef: #FFF4EF;
+    --unnamed-color-b19184: #B19184;
+    --unnamed-color-7c675c: #7C675C;
+    
+    /* Font/text values */
+    --unnamed-font-family-nanumsquare: NanumSquare;
+    --unnamed-font-family-eulyoo1945: Eulyoo1945;
+    --unnamed-font-style-normal: normal;
+    --unnamed-font-weight-normal: normal;
+    --unnamed-font-size-12: 12px;
+    --unnamed-font-size-16: 16px;
+    --unnamed-font-size-20: 20px;
+    --unnamed-font-size-24: 24px;
+    --unnamed-font-size-28: 28px;
+    --unnamed-font-size-32: 32px;
+    --unnamed-character-spacing-0: 0px;
+    --unnamed-line-spacing-13: 13px;
+    --unnamed-line-spacing-16: 16px;
+    --unnamed-line-spacing-18: 18px;
+    --unnamed-line-spacing-21: 21px;
+    --unnamed-line-spacing-23: 23px;
+    --unnamed-line-spacing-27: 27px;
+    --unnamed-line-spacing-32: 32px;
+    --unnamed-line-spacing-36: 36px;
+    --unnamed-line-spacing-37: 37px;
+    --unnamed-line-spacing-43: 43px;
+    }
+    
+    /* Character Styles */
+    .unnamed-character-style-1 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-12);
+    line-height: var(--unnamed-line-spacing-16);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-2 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-16);
+    line-height: var(--unnamed-line-spacing-21);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-3 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-20);
+    line-height: var(--unnamed-line-spacing-27);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-4 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-24);
+    line-height: var(--unnamed-line-spacing-32);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-5 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-28);
+    line-height: var(--unnamed-line-spacing-37);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-6 {
+    font-family: var(--unnamed-font-family-eulyoo1945);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-32);
+    line-height: var(--unnamed-line-spacing-43);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-7 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-12);
+    line-height: var(--unnamed-line-spacing-13);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-8 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-16);
+    line-height: var(--unnamed-line-spacing-18);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-9 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-20);
+    line-height: var(--unnamed-line-spacing-23);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-10 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-24);
+    line-height: var(--unnamed-line-spacing-27);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-11 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-28);
+    line-height: var(--unnamed-line-spacing-32);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+    .unnamed-character-style-12 {
+    font-family: var(--unnamed-font-family-nanumsquare);
+    font-style: var(--unnamed-font-style-normal);
+    font-weight: var(--unnamed-font-weight-normal);
+    font-size: var(--unnamed-font-size-32);
+    line-height: var(--unnamed-line-spacing-36);
+    letter-spacing: var(--unnamed-character-spacing-0);
+    color: var(--unnamed-color-000000);
+    }
+
+/* detail.css */
+body {
+    background-color: var(--unnamed-color-ffe9df);
+}

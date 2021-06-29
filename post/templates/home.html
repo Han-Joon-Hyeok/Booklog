@@ -1,0 +1,34 @@
+<!--게시물 리스트 페이지-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'home.css' %}">
+  <title>POST</title>
+  <style>
+    body{text-align: center;}
+  </style>
+</head>
+<body>
+  <h1>Post</h1>
+  <hr>
+  <div>
+    <a href="{% url 'new' %}">글쓰기</a>
+  </div>
+  <div class="container">
+  {% for post in posts %}
+      <div>
+      <h3>{{post.title}}</h3>
+      <p>{{post.writer}} :
+      {{post.summary}} <a href="{% url 'detail' post.id %}">...more</a>
+      </p>
+      <br>
+      <hr>
+      </div>
+  {% endfor %}
+  </div>
+</body>
+</html>

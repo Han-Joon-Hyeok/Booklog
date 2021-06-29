@@ -1,0 +1,46 @@
+<!--게시글 상세 페이지-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'detail.css' %}">
+  <title>Detail</title>
+  <style>
+    body{text-align: center;}
+  </style>
+</head>
+<body>
+  <h1>{{post.title}}</h1>
+  <div>
+  작성자 : {{post.writer}}
+  <br>
+  날짜 : {{post.pub_date}}
+  </div>
+  <hr>
+  <p>{{post.body}}</p>
+  <a href= "{% url 'edit' post.id %}">수정하기</a>
+  <a href= "{% url 'delete' post.id %}">삭제하기</a>
+  
+  <br>
+  <hr width="500px">
+  <h3>--- Comments ---</h3>
+{% for comment in post.comments.all %}
+<div class="comment">
+  <p id="comment__author">{{ comment.author_name }}: </p>
+  <p id="comment__content"> {{ comment.comment_text|linebreaks }}</p> 
+</div>
+<div class="date">{{ comment.created_at }}</div>
+<hr width="500px">
+{% empty %}
+<p>No comments here yet :(</p>
+{% endfor %}
+
+
+<br>
+<a href= "{% url 'home' %}">메인으로</a>
+
+</body>
+</html>
