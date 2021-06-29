@@ -16,9 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from user_profile import views as pv
+from user_profile import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',pv.writeprofile, name="writeprofile"), 
-    path('writeProfile/',pv.writeprofile, name="writeprofile"),
+    path('', pv.writeprofile, name="writeprofile"),
+    path('writeProfile/', pv.writeprofile, name="writeprofile"),
+    path('', views.profile, name="profile"),
 ]
