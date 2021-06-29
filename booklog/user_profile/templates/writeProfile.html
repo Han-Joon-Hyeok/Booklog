@@ -6,13 +6,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        html{
+            background-color: #FFF4EF;
 
+        }
+        .outterbox {
+            margin: 0 auto;
+            width:40%;
+            display: grid;
+            grid-template-rows: 2 1fr;
+        }
+        .topbox{
+            margin-top:15%;
+        }
+        .picture_box{
+            width:50%;
+            float:left;
+        }
+        .profile_img{
+            width :10rem;
+            border-radius: 50%;
+        }
+        .profile_box{
+            width:50%;
+            float: right;
 
+        }
+
+        textarea {
+            width:100%;
+            overflow: hidden ;
+            resize: none; 
+        }
+        .btn{
+            background-color: transparent ;
+            margin-top: 1em;
+            width: 10.5em;
+            height: 2em;
+            border: 1px solid #000000;
+            border-radius: 50px;
+            opacity: 1;
+            text-align: center;
+        }
+
+        #submit_btn{
+            margin-top: 5em;
+
+        }
     </style>
 </head>
 <body>
     <!-- / 프로필 작성만 다른 부분 -->
-    
+    <div class="outterbox">
+        <div class="topbox">
+            <div class="picture_box">
+                <img src={% if person.profile.image %}"{{ person.profile.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} class="profile_img">
+                <br>
+                <input class="btn" type="submit" value="사진 변경하기">
+            </div>
+            <form action="">
+                <div class="profile_box">
+                    <p class="title">이름</p><input name="nickname" type="text" placeholder="TEXT"><br>
+                    <p class="title">아이디</p><p name="id">@mju_likelion</p><br>
+                    <p class="title">이메일</p><p name="email">mjulikelion@likelion.org</p><br>
+                </div>
+        </div>
+        <div class="description_box">
+            <p class="title">소개</p><br>
+            <textarea name="description" cols="50" rows="7"></textarea><br>
+            <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
+        </div>
+        </form>
+    </div>
+
+
     <!-- 프로필 작성만 다른 부분 / -->
 </body>
 </html>
