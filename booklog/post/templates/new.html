@@ -1,0 +1,9 @@
+<!--글쓰기 페이지-->
+<h1>Write Your Post</h1>
+<form action="{%url 'create'%}" method="post">
+  {% csrf_token %}
+  <p>제목 : <input type="text" name="title"></p>
+  <p>작성자 : <input type="text" name="writer"></p>
+  본문 : <textarea name="body" id="" cols="30" rows="10"></textarea>
+  <button type="submit">submit</button>
+</form>
