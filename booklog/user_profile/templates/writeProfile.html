@@ -6,9 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        
+        @font-face{
+            font-family: "NanumSquareR";
+            src: url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css) format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'Eulyoo1945-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Eulyoo1945-SemiBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
         html{
             background-color: #FFF4EF;
-
+        }
+        .firsthr{
+            margin-left:50px;
+            margin-right:50px;
+            margin-top:100px;
         }
         .outterbox {
             margin: 0 auto;
@@ -18,63 +42,130 @@
         }
         .topbox{
             margin-top:15%;
+            padding-bottom: 5%;
+            display: grid;
+            grid-template-columns: 2fr 3fr;
         }
-        .picture_box{
-            width:50%;
-            float:left;
-        }
-        .profile_img{
-            width :10rem;
-            border-radius: 50%;
-        }
-        .profile_box{
-            width:50%;
-            float: right;
+            .picture_box{
+                text-align: center;
+            }
+                .profile_img{
+                    width :12em;
+                    height:12em;
+                    border-radius: 50%;
+                    object-fit: cover;
 
-        }
+                }
+                .picture_box input[type="file"]{
+                    position: absolute;
+                    width: 0;
+                    height: 0;
+                    padding: 0;
+                    overflow: hidden;
+                    border: 0;
+                }
+                label {
+                    display: inline-block;
+                    cursor: pointer;
+                    margin-top: 1em;
 
-        textarea {
-            width:100%;
-            overflow: hidden ;
-            resize: none; 
-        }
-        .btn{
-            background-color: transparent ;
-            margin-top: 1em;
-            width: 10.5em;
-            height: 2em;
-            border: 1px solid #000000;
-            border-radius: 50px;
-            opacity: 1;
-            text-align: center;
-        }
+                }
 
-        #submit_btn{
-            margin-top: 5em;
+                .title{
+                    font-family: "NanumSquareR";
+                    display: inline-block;
+                    font-size:larger;
+                }
+                th{
+                    text-align: center;
+                    font-weight: normal;
+                    height:2em;
+                    vertical-align: bottom;
+                    padding-top:35px;
+                    width:5em;
+                }
 
-        }
+                .profile_box  p{
+                    margin:1em 2em 2em 1em;
+                }
+                td{
+                    font-size:larger;
+                    font-family: "Eulyoo1945-Regular";
+                    vertical-align: top;
+                    text-align: left;
+                    font-weight: normal;
+                    padding-top:35px;
+                }
+                input[type=text],textarea {
+                    padding: 10px;
+                    text-align: left;
+                    border:0;
+                    color: #909090;
+
+                }
+
+            textarea {
+                width:100%;
+                overflow: hidden ;
+                resize: none; 
+                vertical-align: middle;
+                color: #909090;
+            }
+            .btn{
+                font: 400 13.3333px "NanumSquareR";
+                background-color: transparent ;
+                width: 10.5em;
+                border: 1px solid #000000;
+                border-radius: 50px;
+                opacity: 1;
+                text-align: center;
+                padding: 0.5em;
+            }
+
+            #submit_btn{
+                margin-top: 5em;
+            }
+            .description_bottom_box{
+                text-align: center;
+            }
     </style>
 </head>
 <body>
+
+
+
+    <hr class="firsthr">
     <!-- / 프로필 작성만 다른 부분 -->
     <div class="outterbox">
         <div class="topbox">
             <div class="picture_box">
-                <img src={% if person.profile.image %}"{{ person.profile.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} class="profile_img">
+                <img src={% if person.profile.image %}"{{ person.profile.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
+                id="preview" class="profile_img" onchange="changeImage(this)" >
                 <br>
-                <input class="btn" type="submit" value="사진 변경하기">
+                <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader">
             </div>
             <form action="">
-                <div class="profile_box">
-                    <p class="title">이름</p><input name="nickname" type="text" placeholder="TEXT"><br>
-                    <p class="title">아이디</p><p name="id">@mju_likelion</p><br>
-                    <p class="title">이메일</p><p name="email">mjulikelion@likelion.org</p><br>
-                </div>
+                <table class="profile_box">
+                    <tr>
+                        <th class="title">이름</th>
+                        <td><input name="nickname" type="text" placeholder="TEXT"></td>   
+                    </tr>
+                    <tr>
+                        <th class="title">아이디</th>
+                        <td name="id">@mju_likelion</td>
+                    </tr>
+                    <tr>
+                        <th class="title">이메일</th>
+                        <td name="email">mjulikelion@likelion.org</td>
+                    </tr>
+                </table>
         </div>
         <div class="description_box">
             <p class="title">소개</p><br>
-            <textarea name="description" cols="50" rows="7"></textarea><br>
-            <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
+            <textarea name="description" cols="50" rows="8"></textarea><br>
+            <div class="description_bottom_box">
+                <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
+            </div>
         </div>
         </form>
     </div>
@@ -83,3 +174,26 @@
     <!-- 프로필 작성만 다른 부분 / -->
 </body>
 </html>
+
+<script>
+    var fileTag = document.getElementById("fileUploader"),
+        preview = document.getElementById("preview");
+
+    fileTag.addEventListener("change", function () {
+        changeImage(this);
+    });
+
+
+    function changeImage(input) {
+        var reader;
+        if (input.files && input.files[0]) {
+            reader = new FileReader();
+            
+            reader.onload = function (e) {
+                preview.setAttribute("src", e.target.result);
+            };
+            
+            reader.readAsDataURL(input.files[0]);
+    }
+    }
+</script>
