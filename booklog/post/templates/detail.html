@@ -38,7 +38,8 @@
 <p>No comments here yet :(</p>
 {% endfor %}
 
-
+<hr>
+<a class="btn btn-default" href="{% url 'add_comment_to_post' post.id %}">댓글달기</a>
 <br>
 <a href= "{% url 'home' %}">메인으로</a>
 

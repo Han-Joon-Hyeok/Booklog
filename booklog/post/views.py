@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
+from .forms import CommentForm
 
 def home(request):
   # Post table에 있는 객체들을 가져와서 posts에 저장
@@ -41,3 +42,16 @@ def delete(request, id):
   delete_post = Post.objects.get(id=id)
   delete_post.delete()
   return redirect('home')
+
+def add_comment_to_post(request, id):
+    post = get_object_or_404(Post, pk=id)
+    if request.method == "POST":
+        form=CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return redirect('detail', id)
+    else:
+        form = CommentForm()
+    return render(request, 'add_comment_to_post.html', {'form':form})
