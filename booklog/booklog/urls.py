@@ -28,4 +28,5 @@ urlpatterns = [
     path('update/<str:id>', update, name="update"),
     path('delete/<str:id>', delete, name="delete"),
     path('post/comment/<str:id>', add_comment_to_post, name='add_comment_to_post'),
+    path('search/', SearchFormView.as_view(), name='search'),
 ]
