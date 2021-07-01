@@ -1,24 +1,22 @@
 
-{% block title %}post_search.html{% endblock %}
+{% extends 'home.html' %}
 
 {% block content %}
-<h1>Blog Search</h1>
-<br>
 
-<form action="." method="post"> {% csrf_token %}
-    {{ form.as_table }} <!-- form을 테이블 형식으로 표시, 여기서 form은 views에서 넘겨준 PostSearchForm 객체임-->
-    <input type="submit" value="Submit" class="btn btn-primary btn-sm">
-</form>
-
-<br/><br/>
-
-{% if object_list %}
-    {% for post in object_list %}
-        <h2><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h2>
-        {{ post.modify_date|date:"N d, Y" }}
-        <p>{{ post.summary }}</p>
-    {% endfor %}
-{% elif search_term %}<!-- 검색란이 공란인지 확인-->
-    <b><i>Search Word({{ search_term }}) Not Found</i></b>
-{% endif %}
+    {% if object_list %}
+        <h1>검색 결과가 없습니다.</h1>
+    {% else %}
+        {% for post in object_list %}
+        <div class="container"> 
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ post.summary }}<a href="{% url 'detail' post.id %}"> ...자세히 보기</a></p> 
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    {% endif %}
 {% endblock %}
