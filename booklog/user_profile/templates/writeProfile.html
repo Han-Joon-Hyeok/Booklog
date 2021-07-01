@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WriteProfile</title>
     <style>
         
         @font-face{
@@ -26,129 +26,83 @@
             font-style: normal;
         }
 
-        html{
-            background-color: #FFF4EF;
+        .header{
+            /* display: grid;
+            grid-template-columns: ; */
+            /* 못해먹겠네 에라이 젠장 */
         }
+            .header_selector{
+                float: left;
+            }
+                .selector_img{
+                width :2em;
+                height:2em;
+                object-fit: cover;
+                }
+            .header_logo{
+                float: center;
+            }
+                .logo_img{
+                    width :4.5em;
+                    height:4.5em;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            .header_links{
+                float: right;
+            }
+
+
         .firsthr{
             margin-left:50px;
             margin-right:50px;
-            margin-top:100px;
+            margin-top:10px;
         }
-        .outterbox {
-            margin: 0 auto;
-            width:40%;
-            display: grid;
-            grid-template-rows: 2 1fr;
+
+        .header_link{
+            color: #1979c3;
+            font-family: "NanumSquareR";
+            font-weight: bold;
+            font-size: small;
+            text-decoration: none;
+
         }
-        .topbox{
-            margin-top:15%;
-            padding-bottom: 5%;
-            display: grid;
-            grid-template-columns: 2fr 3fr;
-        }
-            .picture_box{
-                text-align: center;
-            }
-                .profile_img{
-                    width :12em;
-                    height:12em;
-                    border-radius: 50%;
-                    object-fit: cover;
-
-                }
-                .picture_box input[type="file"]{
-                    position: absolute;
-                    width: 0;
-                    height: 0;
-                    padding: 0;
-                    overflow: hidden;
-                    border: 0;
-                }
-                label {
-                    display: inline-block;
-                    cursor: pointer;
-                    margin-top: 1em;
-
-                }
-
-                .title{
-                    font-family: "NanumSquareR";
-                    display: inline-block;
-                    font-size:larger;
-                }
-                th{
-                    text-align: center;
-                    font-weight: normal;
-                    height:2em;
-                    vertical-align: bottom;
-                    padding-top:35px;
-                    width:5em;
-                }
-
-                .profile_box  p{
-                    margin:1em 2em 2em 1em;
-                }
-                td{
-                    font-size:larger;
-                    font-family: "Eulyoo1945-Regular";
-                    vertical-align: top;
-                    text-align: left;
-                    font-weight: normal;
-                    padding-top:35px;
-                }
-                input[type=text],textarea {
-                    padding: 10px;
-                    text-align: left;
-                    border:0;
-                    color: #909090;
-
-                }
-
-            textarea {
-                width:100%;
-                overflow: hidden ;
-                resize: none; 
-                vertical-align: middle;
-                color: #909090;
-            }
-            .btn{
-                font: 400 13.3333px "NanumSquareR";
-                background-color: transparent ;
-                width: 10.5em;
-                border: 1px solid #000000;
-                border-radius: 50px;
-                opacity: 1;
-                text-align: center;
-                padding: 0.5em;
-            }
-
-            #submit_btn{
-                margin-top: 5em;
-            }
-            .description_bottom_box{
-                text-align: center;
-            }
-    </style>
+        /* 여기부터 이 페이지만 갖는 특성 */
+        
+        
+        </style>
+        {% load static %}
+        <link rel="stylesheet" href="{%static 'css/writeprofile.css'%}">
 </head>
 <body>
-
-
-
-    <hr class="firsthr">
+    <header class="header">
+        <div class="header_selector">
+            <a href="#"><img src="{% static 'image/selector.jpg'%}" alt="" class="selector_img"></a>
+        </div>
+        <div class="header_logo">
+            <img src="{% static 'image/logo.jpg'%}" alt="" class="logo_img">
+        </div>
+        <div class="header_links">
+            <a href="#" class="header_link">마이페이지</a>
+            <a href="#" class="header_link" >회원가입</a>
+        </div>
+    </header>
+        <hr class="firsthr">
     <!-- / 프로필 작성만 다른 부분 -->
     <div class="outterbox">
         <div class="topbox">
             <div class="picture_box">
-                <img src={% if person.profile.image %}"{{ person.profile.image.url }}"{% else %}"https://i.stack.imgur.com/34AD2.jpg"{% endif %} 
+                <form action="{% url 'writeprofile' %}" method="POST" enctype=“multipart/form-data”>
+                    {%csrf_token%}
+                <img src="{% if Profile.image %}{{ Profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
                 id="preview" class="profile_img" onchange="changeImage(this)" >
                 <br>
-                <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader">
+                <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader" name="image">
             </div>
-            <form action="">
                 <table class="profile_box">
                     <tr>
                         <th class="title">이름</th>
-                        <td><input name="nickname" type="text" placeholder="TEXT"></td>   
+                        <td><input name="nickname" type="text" value="{{profile.nickname}}"></td>   
                     </tr>
                     <tr>
                         <th class="title">아이디</th>
@@ -162,7 +116,7 @@
         </div>
         <div class="description_box">
             <p class="title">소개</p><br>
-            <textarea name="description" cols="50" rows="8"></textarea><br>
+            <textarea name="description" cols="50" rows="8">{{profile.description}}</textarea><br>
             <div class="description_bottom_box">
                 <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
             </div>
