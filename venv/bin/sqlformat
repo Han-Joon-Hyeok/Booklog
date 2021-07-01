@@ -1,4 +1,4 @@
-#!/Users/Wille/Desktop/Coding/Booklog/venv/bin/python
+#!/Users/Wille/Desktop/Booklog-signup/venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
