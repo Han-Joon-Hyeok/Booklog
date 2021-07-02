@@ -78,4 +78,15 @@ class SearchFormView(FormView):
 
         return render(self.request, self.template_name, context)
 
-  
+
+def search(request):
+    posts = Post.objects.all().order_by('-id')
+
+    q = request.POST.get('q', "") 
+
+    if q:
+        posts = posts.filter(title__icontains=q)
+        return render(request, 'post_search.html', {'posts' : posts, 'q' : q})
+    
+    else:
+        return render(request, 'post_search.html')

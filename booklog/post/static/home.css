@@ -153,3 +153,7 @@
 body {
     background-color: var(--unnamed-color-ffe9df);
 }
+
+.post_navbar{
+    display: flex;
+}
