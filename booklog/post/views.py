@@ -29,7 +29,7 @@ def create(request):
 
 def edit(request, id):
   edit_post = Post.objects.get(id=id)
-  return render(request, 'edit.html',{'post':edit_post})
+  return render(request, 'Edit_and_Delete.html',{'post':edit_post})
 
 def update(request, id):
   update_post = Post.objects.get(id=id)

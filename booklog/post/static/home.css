@@ -149,11 +149,3 @@
     color: var(--unnamed-color-000000);
     }
 
-/* detail.css */
-body {
-    background-color: var(--unnamed-color-ffe9df);
-}
-
-.post_navbar{
-    display: flex;
-}

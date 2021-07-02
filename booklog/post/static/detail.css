@@ -160,9 +160,7 @@
     }
 
 /* detail.css */
-body {
-    background-color: var(--unnamed-color-ffe9df);
-}
+
 .comment{
     display: flex;
     justify-content: center;
@@ -170,7 +168,4 @@ body {
 #comment__author {
     color: var(--unnamed-color-7c675c);
     font-weight: bold;
-}
-#comment__content {
-    
 }

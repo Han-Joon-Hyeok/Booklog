@@ -5,27 +5,118 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="{% static 'home.css' %}">
   <title>POST</title>
   <style>
-    body{text-align: center;}
+    body{
+      background-color: #fff4ef;
+    }
+    ul{
+      height: auto;
+    }
+    li{
+      display: inline-block;
+    }
+    .header{
+      margin-top: 46px;
+      margin-left: 141px;
+      width: 1641px;
+      height: 96px;
+      opacity: 1;
+    }
+    hr{
+      border: 1px solid rgb(189, 183, 180);
+    }
+    #logo{
+      top: 46px;
+      width: 80px;
+      height: 80px;
+      background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
+      border-radius: 129px;
+      opacity: 1;
+    }
+    .member{
+      top: 104px;
+      width: 50px;
+      left: 1382px;
+      height: 13px;
+      text-align: left;
+      font: normal normal bold 12px/13px NanumSquare;
+      letter-spacing: 0px;
+      color: #1979C3;
+      opacity: 1;
+    }
+    .search{
+      margin-top: 49px;
+      width: 32px;
+      height: 32px;
+      opacity: 1;
+    }
+    .search_icon{
+      border: 0px solid black;
+      top: 90px;
+      left: 1561px;
+      width: 220px;
+      height: 40px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+    .post_search{
+      text-align: center;
+      margin-top: 64.5px;
+    }
+    .form-control{
+      border: 0px solid black;
+      width: 220px;
+      height: 40px;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      opacity: 1;
+    }
+    .container{
+      margin-top: 30px;
+    }
+    .posts{
+        top: 311px;
+        margin-left: 554px;
+        margin-bottom: 50px;
+        width: 812px;
+        height: 334px;
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #707070;
+        opacity: 1;
+        text-align: center;
+    }
+    a{
+      text-decoration: none;
+      color: black;
+    }
   </style>
 </head>
 <body>
-  <h1>Post</h1>
-  <hr>
-
-  <div class="post_navbar">
+  <div class=header>
+    <div>
+      <ul >
+        <li style="margin-left: -40px;"><img src="{%static 'menu.png' %}"></li>
+        <a href="{% url 'main' %}"><img id=logo style="margin-left: 725px;" src="{%static 'logo.png' %}"></a>
+        <li class=member style="margin-left: 380px;">로그인</li>
+        <li class=member style="margin-left: 10px;">회원가입</li>
+        <li class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></li>
+        <li><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></li>
+      </ul>
+    </div>
+    <hr>
+  </div>
+ 
+  <div>
     <div class="post_search">
       <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
         {% csrf_token %}
-        <input class="form-control mr-sm-2" type="search" placeholder="글 제목 검색" aria-label="Search" name="q" value="{{q}}">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">검색</button>
+        <img src="{%static 'search.png' %}" style="margin-right: -5px; width: 32px; height: 32px; margin-bottom: -10px;">
+        <input class="form-control" type="search" placeholder="  글 제목 검색" aria-label="Search" name="q" value="{{q}}">
+        <button class="btn" type="submit">검색</button>
       </form>
     </div>
-    <div class="post_add">
-      <a href="{% url 'main' %}">메인으로</a>
+    <div style="text-align: center; margin-top: 10px;">
       <a href="{% url 'new' %}">글쓰기</a>
     </div>
   </div>
@@ -33,13 +124,14 @@
   
   <div class="container">
   {% for post in posts %}
-      <div>
-      <h3>{{post.title}}</h3>
-      <p>{{post.writer}} :
-      {{post.summary}} <a href="{% url 'detail' post.id %}">...more</a>
-      </p>
-      <br>
-      <hr>
+      <div class="posts">
+        <a href="{% url 'detail' post.id %}">
+        {{post.writer}}
+        <h3>{{post.title}}</h3>
+        <hr>
+        <p>{{post.summary}}...<br>
+        {{post.pub_date}}
+        </p></a>
       </div>
   {% endfor %}
   </div>
