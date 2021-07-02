@@ -58,6 +58,10 @@ def add_comment_to_post(request, id):
         form = CommentForm()
     return render(request, 'add_comment_to_post.html', {'form':form})
 
+def main(request):
+    return render(request, "main.html")
+
+
 
 class SearchFormView(FormView):
     form_class = PostSearchForm
@@ -73,3 +77,5 @@ class SearchFormView(FormView):
         context['object_list'] = post_list
 
         return render(self.request, self.template_name, context)
+
+  

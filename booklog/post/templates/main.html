@@ -1,0 +1,116 @@
+<!--홈페이지 메인 화면-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>main</title>
+  <style>
+    *{
+      background-color: #fff4ef;
+      text-align: center;
+    }
+    .header{
+      top: 46px;
+      left: 141px;
+      width: 1641px;
+      height: 96px;
+      opacity: 1;
+    }
+    #logo{
+      top: 46px;
+      left: 920px;
+      width: 80px;
+      height: 80px;
+      background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
+      border-radius: 129px;
+      opacity: 1;
+    }
+    .main_text{
+      top: 178px;
+      left: 140px;
+      width: 1640px;
+      height: 480px;
+      background: var(--unnamed-color-ffffff) 0% 0% no-repeat padding-box;
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 1px solid #707070;
+      opacity: 1;
+      overflow:hidden;
+    }
+    #square{
+      top: 178px;
+      left: 142px;
+      width: 551px;
+      height: 480px;
+      background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
+      border: 1px solid #707070;
+      opacity: 0.28;
+      z-index: 1;
+    }
+    #center{
+      top: 178px;
+      left: 582px;
+      width: 480px;
+      height: 480px;
+      background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
+      border-radius: 129px;
+      opacity: 1;
+      display:inline-block;
+      margin-left: -112px;
+      z-index: 2;
+    }
+    p{
+      top: 271px;
+      left: 1089px;
+      width: 639px;
+      height: 327px;
+      font: var(--unnamed-font-style-normal) normal var(--unnamed-font-weight-normal) var(--unnamed-font-size-20)/25px var(--unnamed-font-family-eulyoo1945);
+      letter-spacing: var(--unnamed-character-spacing-0);
+      color: var(--unnamed-color-000000);
+      text-align: left;
+      font: normal normal normal 20px/25px Eulyoo1945;
+      letter-spacing: 0px;
+      color: #000000;
+      opacity: 1;
+      background-color: #FFFFFF;
+    }
+    .in{
+      display:inline-block;
+      vertical-align:middle;
+      background-color: #FFFFFF;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class=header>
+    <div>
+      <img id=logo src="{%static 'logo.png' %}">
+    </div>
+  </div>
+  <div class=main_text>
+    <div class=in>
+      <img id=square src="{%static 'logo.png' %}">
+    </div>
+    <div class=in>
+      <img id=center src="{%static 'logo.png' %}">
+    </div>
+    <div class=in>
+      <p>
+        때로 우리는 '기록'에 대해 고민합니다.<br>
+        일기를 쓰기도 하고, 노트를 채워가며 하루를 기록합니다.<br><br>
+        좋은 책을 읽었을 때, 기억하고 싶은 구절이 있을 때,<br>
+        여러분은 북:로그를 통해 기록하실 수 있습니다.<br><br>
+        단순히 나 혼자 기록에 머무는 것이 아닌,<br>
+        다른 사람은 어떤 책을 읽고 어떤 생각을 하였을까 생각이 스쳐지나갈 때,
+        여러분은 북:로그를 통해 다른 사람의 생각을 들여다 볼 수 있습니다.<br><br>
+        북:로그는 여러분의 자유로운 기록과 소통을 원합니다.<br>
+        오늘 읽은 한 페이지가 여러분에게 가치가 있길...
+      </p>
+    </div>
+  </div>
+  
+</body>
+</html>
