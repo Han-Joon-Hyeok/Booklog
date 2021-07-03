@@ -18,23 +18,35 @@
       display: inline-block;
     }
     .header{
-      margin-top: 46px;
-      margin-left: 141px;
-      width: 1641px;
-      height: 96px;
+      width: 100%;
+      height: auto;
       opacity: 1;
+    }
+    .header__items{
+      height: auto;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin: 0 auto;
     }
     hr{
       border: 1px solid rgb(189, 183, 180);
     }
     #logo{
-      top: 46px;
       width: 80px;
       height: 80px;
       background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
       border-radius: 129px;
       opacity: 1;
     }
+    .header__login{
+      display: inline-block;
+    }
+    .header__search{
+      display: inline-block;
+      justify-content: center;
+    }
+    
     .member{
       top: 104px;
       width: 50px;
@@ -47,10 +59,10 @@
       opacity: 1;
     }
     .search{
-      margin-top: 49px;
       width: 32px;
       height: 32px;
       opacity: 1;
+      margin-top: 20px;
     }
     .search_icon{
       border: 0px solid black;
@@ -60,6 +72,10 @@
       height: 40px;
       background: #FFFFFF 0% 0% no-repeat padding-box;
       opacity: 1;
+    }
+    .post_options{
+      align-items: center;
+      text-align: center;
     }
     .post_search{
       text-align: center;
@@ -72,18 +88,32 @@
       background: #FFFFFF 0% 0% no-repeat padding-box;
       opacity: 1;
     }
+    .write_btn{
+      justify-content: center;
+      margin-top: 10px; 
+      display: inline-block; 
+      margin-top: 20px;
+      border: 1px solid gray;
+      border-radius: 4px;
+      background-color: lavender;
+    }
+    .write_btn:hover{
+      background-color: rgb(194, 194, 241);
+    }
     .container{
       margin-top: 30px;
+      align-items: center;
+      display: flex;
     }
     .posts{
-        top: 311px;
-        margin-left: 554px;
-        margin-bottom: 50px;
-        width: 812px;
+        width: 800px;
         height: 334px;
+        margin-bottom: 50px;
+        margin-right: 10px;
         background: #FFFFFF 0% 0% no-repeat padding-box;
-        border: 1px solid #707070;
-        opacity: 1;
+        background-color: rgba( 255, 255, 255, 0.5 );
+        border: 3px solid #707070;
+        border-radius: 10px;
         text-align: center;
     }
     a{
@@ -94,20 +124,22 @@
 </head>
 <body>
   <div class=header>
-    <div>
-      <ul >
-        <li style="margin-left: -40px;"><img src="{%static 'menu.png' %}"></li>
-        <a href="{% url 'main' %}"><img id=logo style="margin-left: 725px;" src="{%static 'logo.png' %}"></a>
-        <li class=member style="margin-left: 380px;">로그인</li>
-        <li class=member style="margin-left: 10px;">회원가입</li>
-        <li class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></li>
-        <li><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></li>
+      <ul class=header__items>
+        <li><img src="{%static 'menu.png' %}"></li>
+        <a href="{% url 'main' %}"><img id=logo src="{%static 'logo.png' %}"></a>
+        <div class=header__login>
+          <a href="#">로그인</a>
+          <a href="#">회원가입</a>
+        </div>
+        <div class=header__search>
+          <li class=search><img src="{%static 'search.png' %}"></li>
+          <li><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></li>
+        </div>
       </ul>
-    </div>
-    <hr>
   </div>
+  <hr>
  
-  <div>
+  <div class="post_options">
     <div class="post_search">
       <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="post">
         {% csrf_token %}
@@ -116,7 +148,7 @@
         <button class="btn" type="submit">검색</button>
       </form>
     </div>
-    <div style="text-align: center; margin-top: 10px;">
+    <div class="write_btn">
       <a href="{% url 'new' %}">글쓰기</a>
     </div>
   </div>

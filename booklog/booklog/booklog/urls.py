@@ -30,5 +30,4 @@ urlpatterns = [
     path('post/comment/<str:id>', add_comment_to_post, name='add_comment_to_post'),
     path('search/', search, name='search'),
     path('main/', main, name='main'),
-
 ]
