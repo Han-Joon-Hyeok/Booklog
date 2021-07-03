@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/css/login.css' %}">
+    <title>Document</title>
+</head>
+<body>
+<section class="login">
+    <img src="{% static 'assets/images/logo.png' %}" alt="logo" class="login__logo-img">
+    <form action="{% url 'login' %}" method="post" class="login__form">
+        {% if error  %}
+            <h1>login fail</h1>
+        {% endif %}
+        {% csrf_token %}
+        <div class="login__form__id">
+            <label for="">ID</label>
+            <input type="text" name="username" id="" placeholder="ID를 입력해주세요.">
+        </div>
+        <div class="login__form__pw">
+            <label for="">PW</label>
+            <input type="password" name="password" id="" placeholder="PW를 입력해주세요.">
+        </div>
+        <input type="submit" value="로그인" class="login__form__submit">
+    </form>
+</section>
+</body>
+</html>

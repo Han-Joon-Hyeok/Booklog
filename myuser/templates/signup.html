@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {#    <link rel="stylesheet" href="assets/css/signup.css">#}
+    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
+    <title>Document</title>
+</head>
+<body>
+<section class="signup-wrap">
+    <div class="signup-container">
+        <div class="signup-header">
+            <h1>회원가입</h1>
+        </div>
+        <div class="signup__body">
+            <div class="logo">
+                <img src="{% static 'assets/images/logo.png' %}" alt="logo" class="login__logo-img">
+            </div>
+            <div class="signup__body__content">
+                <p>"북:로그"를 통해 독서생활을 즐겨보세요.</p>
+                <p>북:로그와 함께 하루 한 페이지, 한 마디를 기록해보는 것은 어떤가요?</p>
+            </div>
+        </div>
+        <form action="{% url 'signup' %}" class="signup__form" method="post">
+            {% csrf_token %}
+            <div class="signup__form__name">
+                <label for="">이름</label>
+                <input type="text" name="name" id="" placeholder="이름를 입력해주세요.">
+            </div>
+            <div class="signup__form__pw">
+                <label for="">이메일</label>
+                <input type="email" name="email" id="" placeholder="E-mail를 입력해주세요.">
+            </div>
+            <div class="signup__form__id">
+                <label for="">아이디</label>
+                <input type="text" name="username" id="" placeholder="ID를 입력해주세요.">
+            </div>
+            <div class="signup__form__pw">
+                <label for="">비밀번호</label>
+                <input type="password" name="password1" id="" placeholder="PW를 입력해주세요.">
+            </div>
+            <div class="signup__form__re-pw">
+                <label for="">비밀번호 재입력</label>
+                <input type="password" name="password2" id="" placeholder="PW를 입력해주세요.">
+            </div>
+            <input type="submit" value="회원가입" class="signup__form__submit">
+        </form>
+    </div>
+</section>
+</body>
+</html>

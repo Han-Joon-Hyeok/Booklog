@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class SignupConfig(AppConfig):
+class FollowConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'signup'
+    name = 'follow'
