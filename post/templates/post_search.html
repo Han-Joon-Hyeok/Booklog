@@ -1,0 +1,22 @@
+
+{% extends 'home.html' %}
+
+{% block content %}
+
+    {% if object_list %}
+        <h1>검색 결과가 없습니다.</h1>
+    {% else %}
+        {% for post in object_list %}
+        <div class="container"> 
+            <div class="card">
+                <div class="card-body">
+                    <h1>{{ post.title }}</h1>
+                    <p>{{ post.pub_date | date:"Y-m-d" }}</p>
+                    <p>{{ post.summary }}<a href="{% url 'detail' post.id %}"> ...자세히 보기</a></p> 
+                </div>
+            </div>
+        </div>
+        <br>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

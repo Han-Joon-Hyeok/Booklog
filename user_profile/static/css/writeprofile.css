@@ -1,0 +1,97 @@
+html{
+    background-color: #FFF4EF;
+}
+.outterbox {
+    margin: 0 auto;
+    width:40%;
+    display: grid;
+    grid-template-rows: 2 1fr;
+}
+.topbox{
+    margin-top:15%;
+    padding-bottom: 5%;
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+}
+    .picture_box{
+        text-align: center;
+    }
+        .profile_img{
+            width :12em;
+            height:12em;
+            border-radius: 50%;
+            object-fit: cover;
+
+        }
+        .picture_box input[type="file"]{
+            position: absolute;
+            width: 0;
+            height: 0;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+        }
+        label {
+            display: inline-block;
+            cursor: pointer;
+            margin-top: 1em;
+
+        }
+
+        .title{
+            font-family: "NanumSquareR";
+            display: inline-block;
+            font-size:larger;
+        }
+        th{
+            text-align: center;
+            font-weight: normal;
+            height:2em;
+            vertical-align: bottom;
+            padding-top:35px;
+            width:5em;
+        }
+
+        .profile_box  p{
+            margin:1em 2em 2em 1em;
+        }
+        td{
+            font-size:larger;
+            font-family: "Eulyoo1945-Regular";
+            vertical-align: top;
+            text-align: left;
+            font-weight: normal;
+            padding-top:35px;
+        }
+        input[type=text],textarea {
+            padding: 10px;
+            text-align: left;
+            border:0;
+            color: #909090;
+
+        }
+
+    textarea {
+        width:100%;
+        overflow: hidden ;
+        resize: none; 
+        vertical-align: middle;
+        color: #909090;
+    }
+    .btn{
+        font: 400 13.3333px "NanumSquareR";
+        background-color: transparent ;
+        width: 10.5em;
+        border: 1px solid #000000;
+        border-radius: 50px;
+        opacity: 1;
+        text-align: center;
+        padding: 0.5em;
+    }
+
+    #submit_btn{
+        margin-top: 5em;
+    }
+    .description_bottom_box{
+        text-align: center;
+    }

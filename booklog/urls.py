@@ -19,6 +19,21 @@ from django.urls import path, include
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('myuser.urls')),
+
+    path('', pv.profile, name="profile"),
+    path('writeProfile/', pv.writeprofile, name="writeprofile"),
+    # path('writeProfile/<str:id>', pv.writeprofile, name="writeprofile"),
+
+    path('', home, name="home"),
+    path('<str:id>', detail, name="detail"),
+    path('new/', new, name="new"),
+    path('create/', create, name="create"),
+    path('edit/<str:id>', edit, name="edit"),
+    path('update/<str:id>', update, name="update"),
+    path('delete/<str:id>', delete, name="delete"),
+    path('post/comment/<str:id>', add_comment_to_post, name='add_comment_to_post'),
+    path('search/', search, name='search'),
+    path('main/', main, name='main'),
 ]
 
 
