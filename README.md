@@ -49,8 +49,6 @@ $ pip3 install -r requirements.txt # for Mac/Linux
 $ pip freeze > requirements.txt
 ```
 
-> If additional packages are installed, the following commands should be executed.
-
 :octocat: Git command
 ---
 
@@ -61,27 +59,31 @@ $ git commit -m "messages"
 $ git push origin <branch_name>
 ```
 
-> Insert 'backend' or 'frontend' instead of <branch_name>.
+> <branch_name>에는 'main' 또는 다른 브랜치 이름을 입력해주세요.
 
 🧐 What's inside?
 ---
     .
-    ├── .config
-    ├── account
+    ├── base
     ├── config
-    ├── page
+    ├── follow
+    ├── post
+    ├── singup
+    ├── user
     ├── .gitignore
     ├── manage.py
     ├── README.md
     └── requirements.txt
 
-1. `/.config`: setup files to deploy
-2. `/account`: account app
-3. `/config`: setup files in project
-4. `/page`: page app
-5. `.gitignore`: define what should be ignored in git
-6. `manage.py`: django command-line util
-7. `requirement.txt`: list of pip-packages to install
+1. `/base`: main 페이지 및 공통 컴포넌트(헤더, 푸터)
+2. `/config`: 프로젝트 셋업 폴더
+3. `/follow`: 팔로우/팔로워 기능
+4. `/post`: 게시물 관리
+5. `/signup`: 회원가입 관리
+6. `/user`: 유저 관리
+7. `.gitignore`: git 파일에 저장하지 않을 파일 목록
+8. `manage.py`: Django 커맨드 유틸
+9. `requirement.txt`: pip 인스톨 패키지 리스트
 
 📝 License
 ---
