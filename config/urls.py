@@ -7,6 +7,6 @@ urlpatterns = [
     path('', include(base.urls)),
     path('user/', include(user.urls)),
     path('post/', include(user.urls)),
-    path('singup/', include(signup.urls)),
+    path('signup/', include('signup.urls')),        # 회원가입 url 수정 - 래현
 ]
 
