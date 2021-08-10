@@ -1,0 +1,73 @@
+@font-face {
+    font-family: 'Eulyoo1945-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-Regular.woff')
+      format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body {
+    font-family: 'Eulyoo1945-Regular';
+    background-color: #fff4ef;
+  }
+
+  .login {
+    padding-top: 95.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login__logo-img {
+    width: 372px;
+    height: 372px;
+    border-radius: 70%;
+  }
+
+  .login__form {
+    padding-top: 79px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .login__form__id {
+    padding-bottom: 27px;
+  }
+
+  .login__form__id label {
+    padding-right: 36px;
+    font-size: 32px;
+  }
+
+  .login__form__id input {
+    width: 308px;
+    height: 40px;
+    border: none;
+    padding-left: 10px;
+    color: #909090;
+  }
+
+  .login__form__pw {
+    padding-bottom: 59px;
+  }
+
+  .login__form__pw label {
+    padding-right: 23px;
+    font-size: 32px;
+  }
+
+  .login__form__pw input {
+    width: 308px;
+    height: 40px;
+    border: none;
+    padding-left: 10px;
+    color: #909090;
+  }
+
+  .login__form__submit {
+    width: 160px;
+    height: 40px;
+    border: 1px solid #000000;
+    background-color: #fff4ef;
+  }
