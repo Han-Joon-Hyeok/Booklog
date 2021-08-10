@@ -6,6 +6,7 @@
 # python manage.py makemigrations & migrate 안한 상태
 
 from django.db import models
+from user.models import *
 
 # 팔로우
 class Follow(models.Model):
@@ -17,7 +18,7 @@ class Follow(models.Model):
 
 # 좋아요
 class Like(models.Model) :
-    like_username = models.ForeignKey('myuser.MyUser', on_delete = models.CASCADE)
+    like_username = models.ForeignKey('user.MyUser', on_delete = models.CASCADE)
     #=== 좋아요 누르는 각각의 피드 입력해넣어야함. (app.Modes 이부분)====
     posting = models.ForeignKey("app.Model", on_delete=models.CASCADE)
     #===========================================================
