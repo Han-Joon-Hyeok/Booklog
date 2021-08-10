@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WriteProfile</title>
+    <style>
+        
+        @font-face{
+            font-family: "NanumSquareR";
+            src: url(https://cdn.jsdelivr.net/gh/moonspam/NanumSquare@1.0/nanumsquare.css) format("truetype");
+            font-style: normal;
+            font-weight: normal;
+        }
+        @font-face {
+            font-family: 'Eulyoo1945-Regular';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-Regular.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face {
+            font-family: 'Eulyoo1945-SemiBold';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2102-01@1.0/Eulyoo1945-SemiBold.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        .header{
+            /* display: grid;
+            grid-template-columns: ; */
+            /* 못해먹겠네 에라이 젠장 */
+        }
+            .header_selector{
+                float: left;
+            }
+                .selector_img{
+                width :2em;
+                height:2em;
+                object-fit: cover;
+                }
+            .header_logo{
+                float: center;
+            }
+                .logo_img{
+                    width :4.5em;
+                    height:4.5em;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            .header_links{
+                float: right;
+            }
+
+
+        .firsthr{
+            margin-left:50px;
+            margin-right:50px;
+            margin-top:10px;
+        }
+
+        .header_link{
+            color: #1979c3;
+            font-family: "NanumSquareR";
+            font-weight: bold;
+            font-size: small;
+            text-decoration: none;
+
+        }
+        /* 여기부터 이 페이지만 갖는 특성 */
+        
+        
+        </style>
+        {% load static %}
+        <link rel="stylesheet" href="{%static 'css/writeprofile.css'%}">
+</head>
+<body>
+    <header class="header">
+        <div class="header_selector">
+            <a href="#"><img src="{% static 'image/selector.jpg'%}" alt="" class="selector_img"></a>
+        </div>
+        <div class="header_logo">
+            <img src="{% static 'image/logo.jpg'%}" alt="" class="logo_img">
+        </div>
+        <div class="header_links">
+            <a href="#" class="header_link">마이페이지</a>
+            <a href="#" class="header_link" >회원가입</a>
+        </div>
+    </header>
+        <hr class="firsthr">
+    <!-- / 프로필 작성만 다른 부분 -->
+    <div class="outterbox">
+        <div class="topbox">
+            <div class="picture_box">
+                <form action="{% url 'writeprofile' %}" method="POST" enctype=“multipart/form-data”>
+                    {%csrf_token%}
+                <img src="{% if Profile.image %}{{ Profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
+                id="preview" class="profile_img" onchange="changeImage(this)" >
+                <br>
+                <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader" name="image">
+            </div>
+                <table class="profile_box">
+                    <tr>
+                        <th class="title">이름</th>
+                        <td><input name="nickname" type="text" value="{{profile.nickname}}"></td>   
+                    </tr>
+                    <tr>
+                        <th class="title">아이디</th>
+                        <td name="id">@mju_likelion</td>
+                    </tr>
+                    <tr>
+                        <th class="title">이메일</th>
+                        <td name="email">mjulikelion@likelion.org</td>
+                    </tr>
+                </table>
+        </div>
+        <div class="description_box">
+            <p class="title">소개</p><br>
+            <textarea name="description" cols="50" rows="8">{{profile.description}}</textarea><br>
+            <div class="description_bottom_box">
+                <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
+            </div>
+        </div>
+        </form>
+    </div>
+
+
+    <!-- 프로필 작성만 다른 부분 / -->
+</body>
+</html>
+
+<script>
+    var fileTag = document.getElementById("fileUploader"),
+        preview = document.getElementById("preview");
+
+    fileTag.addEventListener("change", function () {
+        changeImage(this);
+    });
+
+
+    function changeImage(input) {
+        var reader;
+        if (input.files && input.files[0]) {
+            reader = new FileReader();
+            
+            reader.onload = function (e) {
+                preview.setAttribute("src", e.target.result);
+            };
+            
+            reader.readAsDataURL(input.files[0]);
+    }
+    }
+</script>
