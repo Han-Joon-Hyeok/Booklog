@@ -1,3 +1,42 @@
+<!-- 
+{% block body %}
+<h1>{{ user.username }}</h1>
+{% with user_followers=user.followers.all %}
+    {% if request.user == user %}
+        <button>회원 수정</button>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <button class="btn btn-secondary">회원 탈퇴</button>
+        </form>
+    {% else %}
+        <hr>
+            {% if request.user in user_followers %}
+                <button>팔로우 취소</button>
+            {% else %}
+                <button>팔로우</button>
+            {% endif %}
+    {% endif %}
+    <p> {{ user_followers|length }}명이 팔로우하고 있습니다.</p>
+    <p> {{ user.followings.count }}명을 내가 팔로우하고 있습니다.</p>
+{% endwith %}
+<hr>
+<h3>작성한 글 목록</h3>
+{% for article in user.article_set.all %}
+    <button>
+        <p>{{ article.title }}</p>
+    </button>
+{% endfor %}
+<h3>좋아요한 글 목록</h3>
+{% for article in user.like_articles.all %}
+    <button>
+        <p>{{ article.title }}</p>
+    </button>
+{% endfor %}
+{% endblock %} -->
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -117,8 +156,10 @@
         <div class="profile-user-img">
         <img src="" class="profile-user-img-img">
         </div>
-    <div id="name" >멋쨍이사자
-    
+      
+    <!-- <div id="name" >멋쨍이사자 -->
+        <div id="name" >{{ user.username }}
+    </div>
 </div>
 <P id="mail">@mju_likelion</P>
     <hr>
@@ -136,17 +177,17 @@
     <div id="circle1" style="float:left;">
         게시글
         <br>
-        350
+        {{ article.count}}
         </div>
         <div id="circle1"style="float:left;">
             팔로잉
             <br>
-            3
+            {{ user.followings.count }}
             </div>
             <div id="circle1"style="float:left;">
                 팔로워
                 <br>
-                1.2M
+                {{ user_followers|length }}
                 </div>
                 <br>
                 <br>
@@ -160,5 +201,8 @@
         </div>
         <br>
 <hr id="hr1">
+
 </body>
 </html>
+
+
