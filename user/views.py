@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render, get_object_or_404
 from signup.models import MyUser
+from .models import Profile
 from .forms import ProfileForm
 from django.contrib.auth import get_user_model
 
@@ -18,6 +19,7 @@ from django.contrib.auth import get_user_model
 
 def writeprofile(request, id):
     user = MyUser.objects.get(id=id)
+    profile = Profile.objects.get(id=id)
     if request.method =='POST':
         form = ProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -26,7 +28,7 @@ def writeprofile(request, id):
             profile.nickname = request.POST['nickname']
             profile.description = request.POST['description']
             profile.save()
-            return redirect('profile',id)
+            return redirect('profile',profile.id)
     else:
         # login 쪽에서 이메일이랑 아이디 가져와야함.
         print('test')
