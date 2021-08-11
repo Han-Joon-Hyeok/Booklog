@@ -92,9 +92,9 @@
     <div class="outterbox">
         <div class="topbox">
             <div class="picture_box">
-                <form action="{% url 'writeprofile' %}" method="POST" enctype=“multipart/form-data”>
+                <form action="{% url 'writeprofile' user.id%}" method="POST" enctype=“multipart/form-data”>
                     {%csrf_token%}
-                <img src="{% if Profile.image %}{{ Profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
+                <img src="{% if profile.image %}{{ profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
                 id="preview" class="profile_img" onchange="changeImage(this)" >
                 <br>
                 <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader" name="image">
@@ -106,11 +106,11 @@
                     </tr>
                     <tr>
                         <th class="title">아이디</th>
-                        <td name="id">{{myuser.id}}</td>
+                        <td name="id">{{user.id}}</td>
                     </tr>
                     <tr>
                         <th class="title">이메일</th>
-                        <td name="email">mjulikelion@likelion.org</td>
+                        <td name="email">{{user.email}}</td>
                     </tr>
                 </table>
         </div>

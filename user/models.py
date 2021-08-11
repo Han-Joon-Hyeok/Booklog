@@ -14,6 +14,6 @@ class Profile(models.Model):
     # description = models.TextField(blank=True)
     user = models.OneToOneField(MyUser, on_delete=models.CASCADE)
     # # User모델과 Profile을 1:1로 연결
-    image = models.ImageField(blank=True,  default='')
+    image = models.ImageField(blank=True,  default='', upload_to ='user/', null=True )
     nickname = models.CharField(max_length=40, blank=True,  default='')
-    description = models.TextField(blank=True, default='')
+    description = models.TextField(blank=True, default='', null=True )
