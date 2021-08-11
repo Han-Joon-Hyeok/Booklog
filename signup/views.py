@@ -12,7 +12,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('/')        # login성공되면 필요시 경로 수정! 현재 기본은 home화면이 되어있다.
+            return redirect('/',{'user':user})        # login성공되면 필요시 경로 수정! 현재 기본은 home화면이 되어있다. # 프로필페이지 연결테스트를 위해 {user:user}추가함. -수정
         else:
             print("login fail")
             return render(request, "login.html", {'error': True})
