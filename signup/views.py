@@ -12,7 +12,7 @@ def login_view(request):
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return redirect('home')
+            return redirect('/')        # login성공되면 필요시 경로 수정! 현재 기본은 home화면이 되어있다.
         else:
             print("login fail")
             return render(request, "login.html", {'error': True})
@@ -34,6 +34,7 @@ def signup(request):
                 user.name = name
                 user.save()
                 print("sign up success")
+                return render(request, 'login.html')
                 # return redirect("login")
             else:
                 print('wrong password')

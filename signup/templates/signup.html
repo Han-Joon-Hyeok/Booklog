@@ -1,24 +1,17 @@
+{% extends 'base.html' %}
 {% load static %}
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {#    <link rel="stylesheet" href="assets/css/signup.css">#}
-    <link rel="stylesheet" href="{% static 'assets/css/signup.css' %}">
-    <title>Document</title>
-</head>
-<body>
+{% block css %}
+    <link rel="stylesheet" href="{% static 'signup/css/signup.css' %}">
+{% endblock %}
+{% block content %}
 <section class="signup-wrap">
     <div class="signup-container">
         <div class="signup-header">
-            <h1>회원가입</h1>
+            <h2><br> </br>회원가입</h2>
         </div>
         <div class="signup__body">
             <div class="logo">
-                <img src="{% static 'assets/images/origin_logo.jpeg' %}" alt="logo" class="login__logo-img">
+                <img src="{% static 'signup/images/origin_logo.jpeg' %}" alt="logo" class="login__logo-img">
             </div>
             <div class="signup__body__content">
                 <p>"북:로그"를 통해 독서생활을 즐겨보세요.</p>
@@ -49,7 +42,7 @@
             </div>
             <input type="submit" value="회원가입" class="signup__form__submit">
         </form>
+        <br></br><br></br>
     </div>
 </section>
-</body>
-</html>
+{% endblock %}
