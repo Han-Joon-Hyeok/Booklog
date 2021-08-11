@@ -10,6 +10,9 @@
 <body>
     {% block content %}
         <h1>Hello</h1>
+        {% if user.is_authenticated %}
+            for 프로필페이지 연결 테스트 링크: <a href="{%url 'profile' user.id%}">프로필페이지로</a> -수정
+        {% endif %}
     {% endblock %}
 </body>
 </html>

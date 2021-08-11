@@ -7,19 +7,21 @@ from django.contrib.auth import get_user_model
 
 # Create your views here.
 
-def writeprofile(request, id):
-    User = get_user_model()
-    user = get_object_or_404(User, id=id)
-    profile = Profile.objects.get(id=id)
-    context = {
-        'user': user,
-        'profile':profile
-    }
-    return render(request, 'writeprofile.html', context)
-
-
 # def writeprofile(request, id):
-def writeprofile(request):
+#     print('id씀-----------------------------------------------')
+#     User = get_user_model()
+#     user = get_object_or_404(User, id=id)
+#     profile = Profile.objects.get(id=id)
+#     context = {
+#         'user': user,
+#         'profile':profile
+#     }
+#     return render(request, 'writeprofile.html', context)
+
+
+def writeprofile(request, pk):
+# def writeprofile(request):
+    print('id안씀-----------------------------------------------')
     if request.method =='POST':
         form = ProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -34,17 +36,18 @@ def writeprofile(request):
             # return render(request,'profile',id=id)
     else:
         # login 쪽에서 이메일이랑 아이디 가져와야함.
-        profile = Profile.objects.get(id=id)
-        myuser = MyUser.objects.get(id=id)
+        # profile = Profile.objects.get(id=id)
+        myuser = MyUser.objects.get(id=pk)
         context ={
-            'profile':profile,
+            # 'profile':profile,
             'myuser':myuser,
         }
-        return render(request, 'writeprofile.html',context)
+        return redirect('writeprofile',context)
 
 
 
-def profile(request):
-    return render(request, "profile.html")
+def profile(request,id):
+    # user = MyUser.objects.get(id=id)/
+    return render(request, "profile.html", {'user_id':id})
 
 
