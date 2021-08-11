@@ -2,17 +2,53 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     {% block title %}
     북로그 : Booklog
     {% endblock %}
+
+    {% block css%}
+    <!--stylesheet-->
+    <link rel="stylesheet" href="{% static 'base/css/home.css' %}">
+    {% endblock %}
 </head>
+
 <body>
     {% block content %}
-        <h1>Hello</h1>
-        {% if user.is_authenticated %}
-            for 프로필페이지 연결 테스트 링크: <a href="{%url 'profile' user.id%}">프로필페이지로</a> -수정
-        {% endif %}
+    <div class=main_text>
+        <div class=in>
+            <img id=square src="{%static 'main_photo.png' %}">
+        </div>
+        <div class=in>
+            <img id=center src="{%static 'logo.png' %}">
+        </div>
+        <div class=in>
+            <p>
+                때로 우리는 '기록'에 대해 고민합니다.<br>
+                일기를 쓰기도 하고, 노트를 채워가며 하루를 기록합니다.<br><br>
+                좋은 책을 읽었을 때, 기억하고 싶은 구절이 있을 때,<br>
+                여러분은 북:로그를 통해 기록하실 수 있습니다.<br><br>
+                단순히 나 혼자 기록에 머무는 것이 아닌,<br>
+                다른 사람은 어떤 책을 읽고 어떤 생각을 하였을까 생각이 스쳐지나갈 때,
+                여러분은 북:로그를 통해 다른 사람의 생각을 들여다 볼 수 있습니다.<br><br>
+                북:로그는 여러분의 자유로운 기록과 소통을 원합니다.<br>
+                오늘 읽은 한 페이지가 여러분에게 가치가 있길...
+            </p>
+        </div>
+    </div>
+    <div class="post">
+        <div class=source>게시글1</div>
+        <div class=source>게시글2</div>
+        <div class=source>게시글3</div>
+        <div class=source>게시글4</div>
+    </div>
+
+    {% if user.is_authenticated %}
+        for 프로필페이지 연결 테스트 링크: <a href="{%url 'profile' user.id%}">프로필페이지로</a> -수정
+    {% endif %}
+
     {% endblock %}
 </body>
+
 </html>

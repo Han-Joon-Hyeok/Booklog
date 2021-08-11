@@ -1,0 +1,58 @@
+<!--나연/메모장으로 쓰고있습니당-->
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <title>{% block title %}{% endblock %}</title>
+
+    <!-- favicon -->
+    <link rel="icon" href="{% static 'base/images/logo.ico' %}"/>
+    
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+
+    <!-- stylesheet-->
+    <link rel="stylesheet" href="{% static 'base/css/base.css' %}">
+   
+{% block css%}      {# signup, login html에 해당하는 원래 css 적용을 위함 - 래현 #}
+{% endblock %}
+</head>
+<body>
+    <div class="container" >
+        <nav class="navbar navbar-light bg-secondary mt-5">
+            <div id="menuToggle" style="margin-top: -60px;">
+                <input type="checkbox">
+
+                <span></span>
+                <span></span>
+                <span></span>
+
+                <ul id="menu" style="display: none;">
+                    <a href=""><li>1</li></a>
+                    <a href=""><li>2</li></a>
+                    <a href=""><li>3</li></a>
+                    <a href=""><li>4</li></a>
+                    <a href=""><li>5</li></a>
+                </ul>
+            </div>
+            <div class="center">
+                <img id="logo" src="{% static 'base/images/logo.jpeg' %}" alt="logo">
+            </div>
+            <div class=member style="margin-left: 380px;">로그인</div>
+            <div class=member style="margin-left: 10px;">회원가입</div>
+            <div class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></div>
+            <div><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></div>
+
+            <div id="search">
+
+            </div>
+        </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
