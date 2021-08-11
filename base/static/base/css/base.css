@@ -1,5 +1,9 @@
 body {
     background-color: #FFF4EF;
+   
+}
+.navbar-default {
+    color:#FFF4EF;
 }
 
 /* 좌측 햄버거 메뉴 */
@@ -21,7 +25,7 @@ body {
 }
 
 #menuToggle a:hover {
-    color: tomato;
+    color: rgb(19, 12, 11);
 }
 
 #menuToggle input {
@@ -85,6 +89,7 @@ body {
     margin: -100px 0 0 -50px;
     padding: 50px;
     padding-top: 125px;
+    
 
     background: #FFF4EF;
     list-style-type: none;
@@ -107,4 +112,24 @@ body {
 #logo {
     border-radius: 50%;
     width: 80px;
+   
 }
+
+
+.member{
+    top: 104px;
+    width: 50px;
+    left: 1382px;
+    height: 13px;
+    text-align: left;
+    font: normal normal bold 12px/13px NanumSquare;
+    letter-spacing: 0px;
+    color: #1979C3;
+    opacity: 1;
+  }
+  .search{
+    margin-top: 49px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+  }
