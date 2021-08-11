@@ -43,14 +43,14 @@ def writeprofile(request, id):
         return redirect('writeprofile',id)
 
 
-def profile(request):
-    User = get_user_model()
-    user = get_object_or_404(User)
-    context = {
-        'user': user
-    }
-    return render(request, "profile.html", context)
-        # profile = Profile.objects.get(id=id)
+# def profile(request):
+#     User = get_user_model()
+#     user = get_object_or_404(User)
+#     context = {
+#         'user': user
+#     }
+#     return render(request, "profile.html", context)
+#         # profile = Profile.objects.get(id=id)
 
 
 
@@ -62,5 +62,6 @@ def profile(request,id):
         'profile':profile,
     }
     return render(request, "profile.html", context)
+    # return render(request, "profile.html", {'user':user})
 
 
