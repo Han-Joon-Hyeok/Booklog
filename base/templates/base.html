@@ -26,13 +26,21 @@
 
 <body>
     <div class="container">
-        <nav class="navbar d-flex justify-content-between">
-            <div class="left">
+        <nav class="navbar d-flex justify-content-center align-items-center mt-4">
+            <!-- 가운데 로고 -->
+            <div class="logo">
+                <a href="{% url 'home' %}">
+                    <img id="logo-img" src="{%static 'base/images/logo.png' %}">
+                </a>
+            </div>
+
+            <div class="nav-content">
+                <!-- 좌측 햄버거 버튼 -->
                 <ul>
                     <li class="dropdown">
-                        <img src="{% static 'base/images/menu.png' %}" alt="menu">
-                        <div class="dropdown-menu">
-                        </div>
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'base/images/menu.png' %}" alt="menu">
+                        </a>
                         <div class="dropdown-content">
                             <a href="#">Menu1-1</a>
                             <a href="#">Menu1-2</a>
@@ -41,14 +49,11 @@
                         </div>
                     </li>
                 </ul>
-            </div>
-            <div class="center">
-                <a href="{% url 'home' %}">
-                    <img id="logo" src="{%static 'base/images/logo.png' %}">
-                </a>
-            </div>
-            <div class="right">
-                {% if user.is_authenticated %}
+
+                <!-- 우측 -->
+                <ul>
+                    {% if user.is_authenticated %}
+
                     <li class="member">
                         <a href="{% url 'profile' user.id %}">{{ user.username }}님</a>
                     </li>
@@ -65,15 +70,19 @@
                     <li class="member">
                         <a href="{% url 'signup' %}">회원가입</a>
                     </li>
-                {% endif %}
-                <li class="search">
-                    <img src="{% static 'search.png' %}">
-                </li>
-                <li>
-                    <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
-                        value="{{q}}">
-                </li>
+                    {% endif %}
+                    <li class="search">
+                        <img src="{% static 'search.png' %}">
+                    </li>
+                    <li>
+                        <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
+                            value="{{q}}">
+                    </li>
+                </ul>
             </div>
+
+
+
         </nav>
         <hr>
         {% block content %}
