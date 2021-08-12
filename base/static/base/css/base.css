@@ -13,7 +13,7 @@ a {
 
 ul {
   height: auto;
-
+  margin: 0;
 }
 
 li {
@@ -31,19 +31,23 @@ hr {
   border: 1px solid rgb(189, 183, 180);
 }
 
-#logo {
+#logo-img {
   top: 46px;
   width: 80px;
   height: 80px;
-  background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
   border-radius: 129px;
   opacity: 1;
 }
 
+.logo{
+  z-index: 3;
+}
+
 .member {
   top: 104px;
-  width: 50px;
+  /* width: 50px; */
   /* left: 1382px; */
+  margin-right: 20px;
   height: 13px;
   text-align: left;
   font: normal normal bold 12px/13px NanumSquare;
@@ -52,8 +56,24 @@ hr {
   opacity: 1;
 }
 
+/* navbar */
+
+.navbar{
+  position: relative;
+}
+
+  .nav-content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+  }
+
 .search {
-  margin-top: 49px;
   width: 32px;
   height: 32px;
   opacity: 1;
@@ -72,7 +92,6 @@ hr {
 .dropdown {
   position: relative;
   margin-left: -40px;
-  top: 15px;
   z-index: 2;
 }
 

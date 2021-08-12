@@ -9,4 +9,3 @@ urlpatterns = [
     path('writeProfile/<str:id>', views.writeprofile, name="writeprofile"),
     # path('writeProfile/<str:id>', pv.writeprofile, name="writeprofile"),
 ]
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

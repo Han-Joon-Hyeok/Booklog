@@ -7,20 +7,13 @@ from post.models import Post
 
 # Create your views here.
 
-# def writeprofile(request, id):
-#     print('id씀-----------------------------------------------')
-#     User = get_user_model()
-#     user = get_object_or_404(User, id=id)
-#     context = {
-#         'user': user,
-#         'profile':profile
-#     }
-#     return render(request, 'writeprofile.html', context)
-
-
 def writeprofile(request, id):
     user = MyUser.objects.get(id=id)
-    profile = Profile.objects.get(id=id)
+    if Profile.objects.get_or_create(id=id):
+        profile = Profile.objects.get(id=id)
+    else:
+        profile = Profile    
+
     if request.method =='POST':
         form = ProfileForm(request.POST,request.FILES)
         if form.is_valid():
@@ -28,15 +21,22 @@ def writeprofile(request, id):
             profile.image = request.POST['image']
             profile.nickname = request.POST['nickname']
             profile.description = request.POST['description']
+            print('저장하기')
+            print('사진 : ',profile.image)
+            print('이름 : ',profile.nickname)
+            print('설명 : ',profile.description)
             profile.save()
-            return redirect('profile',profile.id)
+            return redirect('profile',user.id)
     else:
         # login 쪽에서 이메일이랑 아이디 가져와야함.
-        print('test')
         context = {
-        'user':user,
-        'profile':profile,
-        }
+            'user':user,
+            'profile':profile,
+        }   
+        print('불러오기')
+        print('사진 : ',profile.image)
+        print('이름 : ',profile.nickname)
+        print('설명 : ',profile.description)
         return render(request, "writeProfile.html", context)
 
 
