@@ -123,9 +123,9 @@ STATICFILES_DIRS = [
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # 이용자가 업로드한 파일을 모으는 곳
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'base/media/')
 # 이용자에게 업로드한 파일을 보여줄 떄 맨앞에 보이는 url
-MEDIA_URL = '/media/'
+MEDIA_URL = '/base/media/'
 
 
 AUTH_USER_MODEL = 'signup.MyUser'       # SystemCheckError해결 - 래현
