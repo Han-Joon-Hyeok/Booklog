@@ -17,7 +17,7 @@ def writeprofile(request, id):
         form = ProfileForm(request.POST,request.FILES)
         if form.is_valid():
             # clean data
-            profile.image = request.POST['image']
+            profile.image=request.FILES['image']
             profile.nickname = request.POST['nickname']
             profile.description = request.POST['description']
             print('저장하기')
@@ -25,6 +25,7 @@ def writeprofile(request, id):
             print('이름 : ',profile.nickname)
             print('설명 : ',profile.description)
             profile.save()
+            form.save()
             return redirect('profile',user.id)
     else:
         # login 쪽에서 이메일이랑 아이디 가져와야함.
