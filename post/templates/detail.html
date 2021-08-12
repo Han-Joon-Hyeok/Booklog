@@ -66,19 +66,6 @@
 </head>
 
 <body>
-  <div class=header>
-    <div>
-      <ul >
-        <li style="margin-left: -40px;"><img src="{%static 'menu.png' %}"></li>
-        <a href="{% url 'main' %}"><img id=logo style="margin-left: 725px;" src="{%static 'logo.png' %}"></a>
-        <li class=member style="margin-left: 380px;">로그인</li>
-        <li class=member style="margin-left: 10px;">회원가입</li>
-        <li class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></li>
-        <li><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></li>
-      </ul>
-    </div>
-    <hr>
-  </div>
   <div style="text-align: center;"> 
     <br><br><br>
     <h1>{{post.title}}</h1>
