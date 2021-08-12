@@ -15,9 +15,9 @@
   {% csrf_token %}
   <p id="title">제목 :
     <input class=title type="text" name="title">
-  </p>
+  </p><br>
   <p>책 선택
-    <img src="{% static 'search.png' %}" style="margin-right: -5px; width: 32px; height: 32px; margin-bottom: -10px;">
+    <img src="{% static 'search.png' %}" style="margin-left: 5px; width: 32px; height: 32px; margin-bottom: 9px;">
     <input class="form-control" type="search" placeholder=" TEXT" aria-label="Search" name="q" value="{{q}}">
     <input class="writer" type="text" name="writer" value="{{post.writer}}">
     <!-- 이 부분이 User 정보와 연동되는지 확인해야함 -->
