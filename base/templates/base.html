@@ -1,6 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,76 +9,76 @@
     <title>{% block title %}{% endblock %}</title>
 
     <!-- favicon -->
-    <link rel="icon" href="{% static 'base/images/logo.ico' %}"/>
-    
-    <!-- bootstrap 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
--->
+    <link rel="icon" href="{% static 'base/images/logo.ico' %}" />
+
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous">
+    </script>
+
     <!-- stylesheet -->
     <link rel="stylesheet" href="{% static 'base/css/base.css' %}">
-    {% block css%}      {# signup, login html에 해당하는 원래 css 적용을 위함 - 래현 #}
+    {% block css%} {# signup, login html에 해당하는 원래 css 적용을 위함 - 래현 #}
     {% endblock %}
 </head>
+
 <body>
-     <!-- <div class="container" >
-        <nav class="navbar navbar-light bg-secondary mt-5">
-            <div id="menuToggle" style="margin-top: -60px;">
-                <input type="checkbox">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
-                <ul id="menu" style="display: none;">
-                    <a href=""><li>1</li></a>
-                    <a href=""><li>2</li></a>
-                    <a href=""><li>3</li></a>
-                    <a href=""><li>4</li></a>
-                    <a href=""><li>5</li></a>
+    <div class="container">
+        <nav class="navbar d-flex justify-content-between">
+            <div class="left">
+                <ul>
+                    <li class="dropdown">
+                        <img src="{% static 'base/images/menu.png' %}" alt="menu">
+                        <div class="dropdown-menu">
+                        </div>
+                        <div class="dropdown-content">
+                            <a href="#">Menu1-1</a>
+                            <a href="#">Menu1-2</a>
+                            <a href="#">Menu1-3</a>
+                            <a href="#">Menu1-4</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
             <div class="center">
-                <img id="logo" src="{% static 'base/images/logo.jpeg' %}" alt="logo">
+                <a href="{% url 'home' %}">
+                    <img id="logo" src="{%static 'base/images/logo.png' %}">
+                </a>
             </div>
-            <div class=member style="margin-left: 380px;">로그인</div>
-            <div class=member style="margin-left: 10px;">회원가입</div>
-            <div class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></div>
-            <div><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></div>
-  
-            <div id="search">
-
+            <div class="right">
+                {% if user.is_authenticated %}
+                    <li class="member">
+                        <a href="{% url 'profile' %}">{{ user.username }}님</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'new' %}">글쓰기</a>
+                    </li>
+                    {% else %}
+                    <li class="member">
+                        <a href="{% url 'login' %}">로그인</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'signup' %}">회원가입</a>
+                    </li>
+                {% endif %}
+                <li class="search">
+                    <img src="{% static 'search.png' %}">
+                </li>
+                <li>
+                    <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
+                        value="{{q}}">
+                </li>
             </div>
         </nav>
-        
-    </div>-->
-    <div class="container" >
-    <div class=header>
-        <div>
-          <ul>
-            <li class=dropdown>
-              <div class="dropdown-menu"><img src="{%static 'menu.png' %}"></div>
-              <div class="dropdown-content">
-                  <a href="#">Menu1-1</a>
-                  <a href="#">Menu1-2</a>
-                  <a href="#">Menu1-3</a>
-                  <a href="#">Menu1-4</a>
-              </div>
-
-            </li>
-            <li style="margin-left: 630px;"><img id=logo src="{%static 'logo.png' %}"></li>
-            <li class=member style="margin-left: 440px;"><a href=#>로그인</a></li>
-            <li class=member style="margin-left: 10px;"><a href=#>회원가입</a></li>
-            <li class=search style="margin-left: 20px;"><img src="{%static 'search.png' %}"></li>
-            <li><input class= "search_icon" type="search" placeholder=" text" aria-label="Search" name="q" value="{{q}}"></li>
-          </ul>
-        </div>
-        <div>
-            <hr>
-        </div>
+        <hr>
+        {% block content %}
+        {% endblock %}
     </div>
-    {% block content %}
-    {% endblock %}
-</div>
 </body>
+
 </html>

@@ -166,7 +166,7 @@
     <hr>
     
     <h3 >소개</h3>
-    <h5>{{profile.description}}
+    <h5>{{ profile.description }}
     </h5>
     <button class="favoritestyled" type="button"> <a href="{% url 'writeprofile' user.id %}">프로필 편집하기</a>  </button>
     
@@ -176,7 +176,7 @@
     <div id="circle1" style="float:left;">
         게시글
         <br>
-        {{ article.count}}
+        {{ count }}개
         </div>
         <div id="circle1"style="float:left;">
             팔로잉

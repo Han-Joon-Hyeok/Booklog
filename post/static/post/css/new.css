@@ -1,0 +1,148 @@
+ul {
+    height: auto;
+}
+
+li {
+    display: inline-block;
+}
+
+.header {
+    margin-top: 46px;
+    margin-left: 141px;
+    width: 1641px;
+    height: 96px;
+    opacity: 1;
+}
+
+hr {
+    border: 1px solid rgb(189, 183, 180);
+}
+
+#logo {
+    top: 46px;
+    width: 80px;
+    height: 80px;
+    background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
+    border-radius: 129px;
+    opacity: 1;
+}
+
+.member {
+    top: 104px;
+    width: 50px;
+    left: 1382px;
+    height: 13px;
+    text-align: left;
+    font: normal normal bold 12px/13px NanumSquare;
+    letter-spacing: 0px;
+    color: #1979C3;
+    opacity: 1;
+}
+
+.search {
+    margin-top: 49px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+}
+
+.search_icon {
+    border: 0px solid black;
+    top: 90px;
+    left: 1561px;
+    width: 220px;
+    height: 40px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+form {
+    margin-top: 182.5px;
+    margin-left: 200px;
+}
+
+.book {
+    float: left;
+    margin-top: 45px;
+}
+
+#picture {
+    width: 520px;
+    height: 486px;
+    background: transparent url('img/9beb43cf25563ae635c0a451ae6a1f1f.png') 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+    margin-right: 18px;
+}
+
+textarea {
+    width: 1011px;
+    height: 486px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    opacity: 1;
+}
+
+.button {
+    margin-bottom: 60px;
+    margin-right: 155px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+button {
+    width: 160px;
+    height: 40px;
+    border: 1px solid #000000;
+    background-color: #fff4ef;
+    opacity: 1;
+    letter-spacing: var(--unnamed-character-spacing-0);
+    text-align: center;
+    font: normal normal normal 16px/18px NanumSquare;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+#title {
+    width: 1700px;
+    height: 26px;
+    text-align: left;
+    font: normal normal normal 20px/23px NanumSquare;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 1;
+}
+
+.title {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    background-color: #fff4ef;
+    width: 1450px;
+    border-color: rgb(189, 183, 180);
+    list-style: solid;
+}
+
+.writer {
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    width: 100px;
+    background-color: #fff4ef;
+    border-color: rgb(189, 183, 180);
+}
+
+.form-control {
+    border: 0px solid black;
+    width: 220px;
+    height: 40px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    opacity: 1;
+
+    text-align: left;
+    font: normal normal normal 16px/18px NanumSquare;
+    letter-spacing: 0px;
+    color: #909090;
+}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .models import MyUser
+from user.models import Profile
 
 
 # Create your views here.
@@ -19,6 +20,9 @@ def login_view(request):
 
     return render(request, "login.html")
 
+def logout_view(request):
+    logout(request)
+    return redirect("home")
 
 def signup(request):
     if request.method == "POST":
@@ -27,14 +31,15 @@ def signup(request):
         username = request.POST['username']
         password1 = request.POST['password1']
         password2 = request.POST['password2']
-
+        
         if name != '' and email != '' and username != '' and password1 != '' and password2 != '':
             if password1 == password2:
                 user = MyUser.objects.create_user(username, email, password1)
                 user.name = name
                 user.save()
+                Profile(user=user).save()
                 print("sign up success")
-                return render(request, 'login.html')
+                return redirect('login')
                 # return redirect("login")
             else:
                 print('wrong password')
