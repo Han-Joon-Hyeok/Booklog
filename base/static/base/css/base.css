@@ -1,9 +1,22 @@
+html{
+  height: 100vh;
+}
+
 body {
   background-color: #fff4ef;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  margin-bottom: 60px;
+  min-height: 100%;
+}
+
+#page-container{
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container{
+  margin-bottom: 1.5rem;
 }
 
 a {
@@ -82,7 +95,7 @@ hr {
 .search_icon {
   border: 0px solid black;
   top: 90px;
-  /* left: 1561px; */
+  padding: 1rem;
   width: 220px;
   height: 40px;
   background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -131,4 +144,19 @@ hr {
 
 .dropdown-content a:hover {
   background-color: #f1f1f1
+}
+
+/* footer */
+
+#footer{
+  margin-top: auto;
+  width: 100%;
+  height: fit-content;
+  background-color: #fdd3bf;
+  padding: 1.2rem;
+  margin-top: 1.5rem;
+}
+
+#footer p{
+  margin-bottom: 0;
 }

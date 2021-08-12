@@ -25,69 +25,77 @@
 </head>
 
 <body>
-    <div class="container">
-        <nav class="navbar d-flex justify-content-center align-items-center mt-4">
-            <!-- 가운데 로고 -->
-            <div class="logo">
-                <a href="{% url 'home' %}">
-                    <img id="logo-img" src="{%static 'base/images/logo.png' %}">
-                </a>
+    <main id="page-container">
+        <div class="container mb-4">
+            <nav class="navbar d-flex justify-content-center align-items-center mt-4">
+                <!-- 가운데 로고 -->
+                <div class="logo">
+                    <a href="{% url 'home' %}">
+                        <img id="logo-img" src="{% static 'base/images/logo.png' %}">
+                    </a>
+                </div>
+
+                <div class="nav-content">
+                    <!-- 좌측 햄버거 버튼 -->
+                    <ul>
+                        <li class="dropdown">
+                            <a href="{% url 'home' %}">
+                                <img src="{% static 'base/images/menu.png' %}" alt="menu">
+                            </a>
+                            <div class="dropdown-content">
+                                <a href="#">Menu1-1</a>
+                                <a href="#">Menu1-2</a>
+                                <a href="#">Menu1-3</a>
+                                <a href="#">Menu1-4</a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- 우측 -->
+                    <ul>
+                        {% if user.is_authenticated %}
+                            <li class="member">
+                                <a href="{% url 'profile' user.id %}">{{ user.username }}님</a>
+                            </li>
+                            <li class="member">
+                                <a href="{% url 'logout' %}">로그아웃</a>
+                            </li>
+                            <li class="member">
+                                <a href="{% url 'new' %}">글쓰기</a>
+                            </li>
+                        {% else %}
+                            <li class="member">
+                                <a href="{% url 'login' %}">로그인</a>
+                            </li>
+                            <li class="member">
+                                <a href="{% url 'signup' %}">회원가입</a>
+                            </li>
+                        {% endif %}
+
+                        <li class="search">
+                            <img src="{% static 'search.png' %}">
+                        </li>
+                        <li>
+                            <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
+                                value="{{q}}">
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <hr>
+
+            {% block content %}
+            {% endblock %}
+
+        </div>
+
+        <footer id="footer">
+            <div class="container d-flex justify-content-center align-items-center flex-column">
+                <p>북:로그</p>
+                <p>멋쟁이사자처럼 9기 @ 명지대(서울)</p>
             </div>
-
-            <div class="nav-content">
-                <!-- 좌측 햄버거 버튼 -->
-                <ul>
-                    <li class="dropdown">
-                        <a href="{% url 'home' %}">
-                            <img src="{% static 'base/images/menu.png' %}" alt="menu">
-                        </a>
-                        <div class="dropdown-content">
-                            <a href="#">Menu1-1</a>
-                            <a href="#">Menu1-2</a>
-                            <a href="#">Menu1-3</a>
-                            <a href="#">Menu1-4</a>
-                        </div>
-                    </li>
-                </ul>
-
-                <!-- 우측 -->
-                <ul>
-                    {% if user.is_authenticated %}
-
-                    <li class="member">
-                        <a href="{% url 'profile' user.id %}">{{ user.username }}님</a>
-                    </li>
-                    <li class="member">
-                        <a href="{% url 'logout' %}">로그아웃</a>
-                    </li>
-                    <li class="member">
-                        <a href="{% url 'new' %}">글쓰기</a>
-                    </li>
-                    {% else %}
-                    <li class="member">
-                        <a href="{% url 'login' %}">로그인</a>
-                    </li>
-                    <li class="member">
-                        <a href="{% url 'signup' %}">회원가입</a>
-                    </li>
-                    {% endif %}
-                    <li class="search">
-                        <img src="{% static 'search.png' %}">
-                    </li>
-                    <li>
-                        <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
-                            value="{{q}}">
-                    </li>
-                </ul>
-            </div>
-
-
-
-        </nav>
-        <hr>
-        {% block content %}
-        {% endblock %}
-    </div>
+        </footer>
+    </main>
 </body>
 
 </html>
