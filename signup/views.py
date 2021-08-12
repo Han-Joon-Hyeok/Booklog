@@ -37,10 +37,10 @@ def signup(request):
                 user = MyUser.objects.create_user(username, email, password1)
                 user.name = name
                 user.save()
-                Profile(user=user).save()
-                print("sign up success")
-                return redirect('login')
-                # return redirect("login")
+                # Profile(user=user).save()
+                # print("sign up success")
+                # return redirect('login')
+                return redirect("login")
             else:
                 print('wrong password')
 

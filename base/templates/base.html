@@ -55,7 +55,7 @@
                     {% if user.is_authenticated %}
 
                     <li class="member">
-                        <a href="{% url 'profile' user.id %}">{{ user.username }}님</a>
+                        <a href="{% url 'profile' %}">{{ user.username }}님</a>
                     </li>
                     <li class="member">
                         <a href="{% url 'logout' %}">로그아웃</a>

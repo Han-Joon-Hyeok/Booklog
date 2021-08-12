@@ -34,18 +34,20 @@ def writeprofile(request, id):
 
 
 def profile(request):
-    profile = Profile.objects.get(user=MyUser.objects.get(name=request.user.name))
-    cnt = Post.objects.filter(profile=profile).count()
-    response_data = {}
-    response_data["count"] = cnt
-    response_data["profile"] = profile
-    # <test용
-    # print(user.id)
-    # print(user.username)
-    # print(user.email)
-    # print(profile.id)
-    # print(profile.description)
-    # test용>
+    user=MyUser.objects.get(id=request.user.id)
+    if Profile.objects.get_or_create(id=request.user.id):
+        profile = Profile.objects.get(id=request.user.id)
+    else:
+        profile = Profile    
+    cnt = Post.objects.filter(user=user).count()
+    # response_data = {}
+    # response_data["count"] = cnt
+    # response_data["profile"] = profile
+    response_data = {
+        'user':user,
+        'profile':profile,
+        'cnt':cnt,
+    }   
     return render(request, "profile.html", response_data)
 
 

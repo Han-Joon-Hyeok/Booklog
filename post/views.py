@@ -27,7 +27,8 @@ def create(request):
   new_post.writer = request.POST['writer']
   new_post.body = request.POST['body']
   new_post.pub_date = timezone.now() # 작성한 현재 시각
-  new_post.profile = Profile.objects.get(user=MyUser.objects.get(name=request.user.name))
+  new_post.user = MyUser.objects.get(id=request.user.id)
+  # new_post.profile = Profile.objects.get(user=MyUser.objects.get(name=request.user.name))
   new_post.save()
   return redirect('detail', new_post.id)
 
