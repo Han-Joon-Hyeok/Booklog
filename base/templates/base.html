@@ -72,6 +72,7 @@
                             </li>
                         {% endif %}
 
+<<<<<<< HEAD
                         <li class="search">
                             <img src="{% static 'search.png' %}">
                         </li>
@@ -83,6 +84,34 @@
                 </div>
             </nav>
             <hr>
+=======
+                    <li class="member">
+                        <a href="{% url 'profile' %}">{{ user.username }}님</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'logout' %}">로그아웃</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'new' %}">글쓰기</a>
+                    </li>
+                    {% else %}
+                    <li class="member">
+                        <a href="{% url 'login' %}">로그인</a>
+                    </li>
+                    <li class="member">
+                        <a href="{% url 'signup' %}">회원가입</a>
+                    </li>
+                    {% endif %}
+                    <li class="search">
+                        <img src="{% static 'search.png' %}">
+                    </li>
+                    <li>
+                        <input class="search_icon" type="search" placeholder="text" aria-label="Search" name="q"
+                            value="{{q}}">
+                    </li>
+                </ul>
+            </div>
+>>>>>>> 9c5d48958d642e9ece2896f548de991c25374883
 
             {% block content %}
             {% endblock %}

@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from .models import MyUser
+from user.models import Profile
 
 
 # Create your views here.
@@ -36,6 +37,7 @@ def signup(request):
                 user = MyUser.objects.create_user(username, email, password1)
                 user.name = name
                 user.save()
+                Profile(user=user).save()
                 print("sign up success")
                 return redirect('login')
                 # return redirect("login")

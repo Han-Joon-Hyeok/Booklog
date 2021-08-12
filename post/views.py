@@ -1,9 +1,12 @@
+from django.http import response
+from signup.models import MyUser
 from django.shortcuts import render,redirect, get_object_or_404
 from .models import Post
 from django.utils import timezone
 from .forms import CommentForm, PostSearchForm
 from django.views.generic import FormView
 from django.db.models import Q
+from user.models import Profile
 
 def home(request):
   # Post table에 있는 객체들을 가져와서 posts에 저장
@@ -24,6 +27,7 @@ def create(request):
   new_post.writer = request.POST['writer']
   new_post.body = request.POST['body']
   new_post.pub_date = timezone.now() # 작성한 현재 시각
+  new_post.profile = Profile.objects.get(user=MyUser.objects.get(name=request.user.name))
   new_post.save()
   return redirect('detail', new_post.id)
 
@@ -90,3 +94,13 @@ def search(request):
     
     else:
         return render(request, 'post_search.html')
+
+
+def postCnt(request):
+    profile = Profile.objects.get(user=MyUser.objects.get(name=request.user.name))
+    cnt = Post.objects.filter(profile).count()
+    response_data = {}
+    response_data.count = cnt
+    response_data.profile = profile
+    return render(request, "profile.html", response_data)
+
