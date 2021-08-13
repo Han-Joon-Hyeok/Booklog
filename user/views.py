@@ -7,7 +7,23 @@ from post.models import Post
 
 # Create your views here.
 
-def writeprofile(request, id):
+def writeprofile(request):
+    id =request.user.id
+    user = MyUser.objects.get(id=id)
+    if Profile.objects.get_or_create(id=id):
+        profile = Profile.objects.get(id=id)
+    else:
+        profile = Profile    
+        
+    if request.method =='GET':
+        # login 쪽에서 이메일이랑 아이디 가져와야함.
+        response_data = {
+            'user':user,
+            'profile':profile,
+        }   
+        return render(request, "writeProfile.html", response_data)
+
+def saveProfile(request, id):
     user = MyUser.objects.get(id=id)
     if Profile.objects.get_or_create(id=id):
         profile = Profile.objects.get(id=id)
@@ -23,15 +39,12 @@ def writeprofile(request, id):
             profile.description = request.POST['description']
             profile.save()
             form.save()
-            return redirect('profile',user.id)
-    else:
-        # login 쪽에서 이메일이랑 아이디 가져와야함.
-        context = {
-            'user':user,
-            'profile':profile,
-        }   
-        return render(request, "writeProfile.html", context)
-
+    response_data = {
+        'user':user,
+        'profile':profile,
+        'cnt':Post.objects.filter(user=user).count(),
+    }   
+    return render(request, "profile.html", response_data)
 
 def profile(request):
     user=MyUser.objects.get(id=request.user.id)
@@ -48,6 +61,9 @@ def profile(request):
         'profile':profile,
         'cnt':cnt,
     }   
+    request.user = user
+    request.profile = profile
+    request.cnt = cnt
     return render(request, "profile.html", response_data)
 
 

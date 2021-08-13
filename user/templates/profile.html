@@ -55,6 +55,14 @@
         </div>
         <div id="name">{{ user.username }}
         </div>
+        <P id="mail">{{user.email}}</P>
+        <hr>
+
+        <h3>소개</h3>
+        <h5>{{profile.description}}
+        </h5>
+        <button class="favoritestyled" type="button"> <a href="{% url 'writeprofile' %}">프로필 편집하기</a> </button>
+
     </div>
     <P id="mail">{{user.email}}</P>
     <hr>
@@ -62,9 +70,9 @@
     <h3>소개</h3>
     <h5>{{ profile.description }}
     </h5>
-    <button class="favoritestyled" type="button"> <a href="{% url 'writeprofile' user.id %}">프로필 편집하기</a> </button>
-
-</div>
+    <button class="favoritestyled" type="button"> <a href="{% url 'writeprofile' %}">프로필 편집하기</a>  </button>
+    
+</div> 
 
 <div class="info">
     <div id="circle1" style="float:left;">
