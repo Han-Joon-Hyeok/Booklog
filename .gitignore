@@ -301,4 +301,4 @@ $RECYCLE.BIN/
 
 .idea
 
-**/migrations/*
+migrations/
