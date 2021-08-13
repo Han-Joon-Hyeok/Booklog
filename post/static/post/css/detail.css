@@ -1,0 +1,9 @@
+/* detail.css */
+.comment{
+    display: flex;
+    justify-content: center;
+}
+#comment__author {
+    color: var(--unnamed-color-7c675c);
+    font-weight: bold;
+}

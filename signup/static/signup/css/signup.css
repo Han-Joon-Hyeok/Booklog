@@ -75,9 +75,20 @@ body {
   color: #909090;
 }
 
+  input[type=password]{
+    font-family: 'Malgun gothic', dotum, sans-serif;
+  }
+
 .signup__form__submit {
   width: 160px;
   height: 40px;
   border: 1px solid #000000;
   background-color: #fff4ef;
+  transition: border 0.3s, color 0.3s, background-color 0.3s;
+}
+
+.signup__form__submit:hover{
+  color: #ffffff;
+  background: #B19184;
+  border: none
 }

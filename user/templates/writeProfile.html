@@ -1,3 +1,5 @@
+{% extends 'base.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -78,64 +80,48 @@
 
         /* 여기부터 이 페이지만 갖는 특성 */
     </style>
-    {% load static %}
     <link rel="stylesheet" href="{%static 'css/writeprofile.css'%}">
 </head>
 
-<body>
-    <header class="header">
-        <div class="header_selector">
-            <a href="#"><img src="{% static 'image/selector.jpg'%}" alt="" class="selector_img"></a>
-        </div>
-        <div class="header_logo">
-            <img src="{% static 'image/logo.jpg'%}" alt="" class="logo_img">
-        </div>
-        <div class="header_links">
-            <a href="#" class="header_link">마이페이지</a>
-            <a href="#" class="header_link">회원가입</a>
-        </div>
-    </header>
-    <hr class="firsthr">
-    <!-- / 프로필 작성만 다른 부분 -->
-    <form action="{% url 'writeprofile' user.id%}" method="POST" enctype=“multipart/form-data”>
-        <div class="outterbox">
-            <div class="topbox">
-                <div class="picture_box">
-                    {%csrf_token%}
-                    <img src="{% if profile.image %}{{ profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
-                        id="preview" class="profile_img" onchange="changeImage(this)">
-                    <br>
-                    <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader"
-                        name="image">
-                </div>
-                <table class="profile_box">
-                    <tr>
-                        <th class="title">이름</th>
-                        <td><input name="nickname" type="text" value="{{profile.nickname}}"></td>
-                    </tr>
-                    <tr>
-                        <th class="title">아이디</th>
-                        <td name="id">{{user.id}}</td>
-                    </tr>
-                    <tr>
-                        <th class="title">이메일</th>
-                        <td name="email">{{user.email}}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="description_box">
-                <p class="title">소개</p><br>
-                <textarea name="description" cols="50" rows="8">{{profile.description}}</textarea><br>
-                <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
-            </div>
-        </div>
-    </form>
+{% block link %}
+{% static 'user/css/writeprofile.css' %}
+{% endblock %}
 
+{% block content %}
 
-    <!-- 프로필 작성만 다른 부분 / -->
-</body>
-
-</html>
+<!-- / 프로필 작성만 다른 부분 -->
+<form action="{% url 'writeprofile' user.id%}" method="POST" enctype=“multipart/form-data”> <div class="outterbox">
+    <div class="topbox">
+        <div class="picture_box">
+            {%csrf_token%}
+            <img src="{% if profile.image %}{{ profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
+                id="preview" class="profile_img" onchange="changeImage(this)">
+            <br>
+            <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader" name="image">
+        </div>
+        <table class="profile_box">
+            <tr>
+                <th class="title">이름</th>
+                <td>{{ user.name }}</td>
+            </tr>
+            <tr>
+                <th class="title">아이디</th>
+                <td name="id">{{user.username}}</td>
+            </tr>
+            <tr>
+                <th class="title">이메일</th>
+                <td name="email">{{user.email}}</td>
+            </tr>
+        </table>
+    </div>
+    <div class="description_box">
+        <p class="title">소개</p><br>
+        <textarea name="description" cols="50" rows="8">{{profile.description}}</textarea><br>
+        <input id="submit_btn" class="btn" type="submit" value="편집 완료하기">
+    </div>
+    </div>
+</form>
+{% endblock %}
 
 <script>
     var fileTag = document.getElementById("fileUploader"),

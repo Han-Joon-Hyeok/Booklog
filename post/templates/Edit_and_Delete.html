@@ -1,21 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
+
+{% block title %}
+북로그 : Booklog
+{% endblock %}
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>edit</title>
   <style>
-    
-    form{
-      margin-top:182.5px;
+    form {
+      margin-top: 182.5px;
     }
-    .book{
+
+    .book {
       float: left;
       margin-top: 45px;
     }
-    #picture{
+
+    #picture {
       width: 520px;
       height: 486px;
       background: transparent url('img/9beb43cf25563ae635c0a451ae6a1f1f.png') 0% 0% no-repeat padding-box;
@@ -23,7 +26,8 @@
       opacity: 1;
       margin-right: 18px;
     }
-    textarea{
+
+    textarea {
       width: 775px;
       height: 486px;
       background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -31,19 +35,22 @@
       opacity: 1;
       position: absolute;
     }
-    #button1{
+
+    #button1 {
       position: relative;
-      top:580px;
+      top: 580px;
       left: 435px;
-  
+
     }
-    #button2{
+
+    #button2 {
       position: relative;
-      top:580px;
-      left:450px;
-  
+      top: 580px;
+      left: 450px;
+
     }
-    button{
+
+    button {
       width: 160px;
       height: 40px;
       border: 1px solid #000000;
@@ -56,7 +63,8 @@
       color: #000000;
       opacity: 1;
     }
-    #title{
+
+    #title {
       width: 1700px;
       height: 26px;
       text-align: left;
@@ -65,7 +73,8 @@
       color: #000000;
       opacity: 1;
     }
-    .title{
+
+    .title {
       border-top: 0;
       border-left: 0;
       border-right: 0;
@@ -74,13 +83,15 @@
       border-color: rgb(189, 183, 180);
       list-style: solid;
     }
-    .writer{
-      border:none;
+
+    .writer {
+      border: none;
       width: 100px;
       background-color: #fff4ef;
       border-color: rgb(189, 183, 180);
     }
-    .form-control{
+
+    .form-control {
       border: 0px solid black;
       width: 150px;
       height: 40px;
@@ -94,7 +105,8 @@
       display: inline;
 
     }
-    .post-form{
+
+    .post-form {
       margin-top: 600px;
       width: 1318px;
       height: 186px;
@@ -103,48 +115,46 @@
       opacity: 1;
 
     }
-    .save btn btn-default{
+
+    .save btn btn-default {
       /*바꿔야하는 부분(댓글 저장 버튼)*/
       position: relative;
-      top:580px;
-      left:450px;
+      top: 580px;
+      left: 450px;
     }
-    p{
-        font: normal normal normal 20px/23px NanumSquare;
+
+    p {
+      font: normal normal normal 20px/23px NanumSquare;
     }
-    a{
+
+    a {
       text-decoration: none;
-      color : black;
+      color: black;
     }
   </style>
 </head>
-<body>
-  {% block content %}
-  <form action="{% url 'update' post.id %}" method="post">
-    {% csrf_token %}
-    <p id=title>제목 : <input class=title type="text" name="title" value="{{post.title}}"></p><br>
-    <p>책 선택 <img src="{%static 'search.png' %}" style="margin-left: 5px; width: 32px; height: 32px; margin-bottom: 9px;">
-      <input class="form-control" type="search" placeholder=" TEXT" aria-label="Search" name="q" value="{{q}}">  
-      <input class=writer type="text" name="writer" value="{{post.writer}}"></p>
-    <div class=book id = picture></div>
-    <textarea class=book name="body" id="" cols="30" rows="10">{{post.body}}</textarea>
-    <div>
-      <button type="submit" id=button1>수정하기</button>
-      <button id=button2><a href= "{% url 'delete' post.id %}">삭제하기</a></button>
-    </div>
-  </form>
+{% block content %}
+<form action="{% url 'update' post.id %}" method="post">
+  {% csrf_token %}
+  <p id=title>제목 : <input class=title type="text" name="title" value="{{post.title}}"></p><br>
+  <p>책 선택 <img src="{%static 'search.png' %}" style="margin-left: 5px; width: 32px; height: 32px; margin-bottom: 9px;">
+    <input class="form-control" type="search" placeholder=" TEXT" aria-label="Search" name="q" value="{{q}}">
+    <input class=writer type="text" name="writer" value="{{post.writer}}"></p>
+  <div class=book id=picture></div>
+  <textarea class=book name="body" id="" cols="30" rows="10">{{post.body}}</textarea>
   <div>
-    <!--add_comment_to_post.html에서 가져옴.
+    <button type="submit" id=button1>수정하기</button>
+    <button id=button2><a href="{% url 'delete' post.id %}">삭제하기</a></button>
+  </div>
+</form>
+<div>
+  <!--add_comment_to_post.html에서 가져옴.
         댓글 저장 누르면, 현재 화면이 뜨도록 코드 바꿔야 함 + 뭔가 많이 바뀌어야 함...^^
         + 작성자 본인에게만 수정/삭제버튼이 뜨도록 만들기
       -->
-    {% block content %}
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">댓글저장</button>
-    </form>
-    {% endblock %}
-  </div>
-  {% endblock %}
-</body>
-</html>
+  <form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">댓글저장</button>
+  </form>
+</div>
+{% endblock %}

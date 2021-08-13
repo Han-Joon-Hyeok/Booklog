@@ -1,75 +1,54 @@
-.main_text{
-  margin-top: -130px;
-  margin-left: 0px;
-  top: 176px;
-  /* left: 140px; */
-  /* width: 1640px; */
-  height: 480px;
-  background: #FFFFFF 0% 0% no-repeat padding-box;
-  border: 1px solid #707070;
-  opacity: 1;
-  overflow:hidden;
-  position: relative;
-}
-#square{
-  top: 0px;
-  left:0px;
-  width: 551px;
-  height: 480px;
-  background: transparent url('main_photo/logo.png') 0% 0% no-repeat padding-box;
-  border: 1px solid #707070;
-  opacity: 0.28;
-  z-index: 1;
-  position: absolute;
-
-}
-#center{
-  top: 0px;
-  left: 555px;
-  width: 480px;
-  height: 480px;
-  background: transparent url('static/logo.png') 0% 0% no-repeat padding-box;
-  border-radius: 129px;
-  opacity: 1;
-  margin-left: -112px;
-  z-index: 2;
-  position: absolute;
+.page-wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
 }
 
-.in p{
-  top: 76px;
-  left: 930px;
-  width: 655px;
-  height: 327px;
-  text-align: left;
-  font: normal normal normal 20px/25px Eulyoo1945;
-  letter-spacing: 0px;
-  color: #000000;
-  opacity: 1;
-  position: absolute;
-  background-color: #FFFFFF;
+.intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+  height: fit-content;
+  background-color: #ffffff;
+}
 
+.intro-photo{
+  width: 100%;
+  display: flex;
 }
-.in{
-  display:inline-block;
-  vertical-align:middle;
-  background-color: #FFFFFF;
+
+.intro-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
-.post{
-  margin-bottom: 65px;
-  margin-left: 140px;
-  position: relative;
-  /*bottom: 0;*/
-  top: 206px;
+
+.intro-text p{
+  width: 100%;
+  height: 100%;
+  padding: 1.5rem;
+  margin-bottom: 0;
 }
-.source{
-  top: 687px;
-  left: 970px;
-  width: 396px;
-  height: 320px;
-  background: transparent url('img/사각형 11.png') 0% 0% no-repeat padding-box;
-  border: 1px solid #707070;
-  opacity: 0.42;
-  float: left;
-  margin-right: 17px;
+
+#square {
+  width: 100%;
 }
+
+.main-post{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+  .main-post .row{
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .main-post .post{
+    border: 1px solid black;
+    width: 20%;
+    height: 100px;
+  }

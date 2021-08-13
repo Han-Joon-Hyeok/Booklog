@@ -5,9 +5,10 @@
 로그인
 {% endblock %}
 
-{% block css %}
-    <link rel="stylesheet" href="{% static 'signup/css/login.css' %}">
+{% block link %}
+{% static 'signup/css/login.css' %}
 {% endblock %}
+
 {% block content %}
 <section class="login">
     <img src="{% static 'base/images/logo.jpeg' %}" alt="logo" class="login__logo-img">
