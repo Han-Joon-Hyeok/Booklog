@@ -97,7 +97,7 @@
     </header>
     <hr class="firsthr">
     <!-- / 프로필 작성만 다른 부분 -->
-    <form action="{% url 'writeprofile' user.id%}" method="POST" enctype=“multipart/form-data”>
+    <form action="{% url 'saveProfile' user.id%}" method="POST" enctype="multipart/form-data" novalidate>
         <div class="outterbox">
             <div class="topbox">
                 <div class="picture_box">
@@ -105,8 +105,7 @@
                     <img src="{% if profile.image %}{{ profile.image.url }}{% else %}https://i.stack.imgur.com/34AD2.jpg{% endif %}"
                         id="preview" class="profile_img" onchange="changeImage(this)">
                     <br>
-                    <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader"
-                        name="image">
+                    <label class="btn" for="fileUploader">사진 변경하기</label><input type="file" id="fileUploader" name="image">
                 </div>
                 <table class="profile_box">
                     <tr>
